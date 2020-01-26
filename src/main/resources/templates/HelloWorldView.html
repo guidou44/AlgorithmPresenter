@@ -6,5 +6,22 @@
 </head>
 <body>
 <p th:text="'Hello, ' + ${name} + '!'"/>
+<a href="javascript:void" onclick="sendRequest()">Send Request</a>
+<div id="sseDiv"></div>
+
+<script>
+function sendRequest(){
+if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("/comment/stream");
+
+    source.onmessage = function(event) {
+        document.getElementById("sseDiv").innerHTML += event.data + " - ";
+    };
+} else {
+    document.getElementById("sseDiv").innerHTML =
+                     "Your browser does not support server-sent events.";
+}
+}
+</script>
 </body>
 </html>
