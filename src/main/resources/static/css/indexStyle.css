@@ -22,16 +22,20 @@ form {
    font-weight: bold;
 }
 
-form.button {
-  background-color: #4CAF50;
+#PathFinderAlgorithmButton, #SortingAlgorithmButton {
+  background-color: #31a34f;
   border: 2px solid #000000;
   border-radius: 14px;
   color: black;
   padding: 15px 32px;
+
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 22px;
   margin: 4px 2px;
   cursor: pointer;
+}
+#PathFinderAlgorithmButton:hover, #SortingAlgorithmButton:hover {
+    background-color: #7bf542;
 }
