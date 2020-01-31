@@ -26,47 +26,49 @@ html, body {
     left: 0;
     height: 100%;
     width: 100%;
-    overflow:hidden;
-    background: url("../Images/marioBackGround.png") #2e3831 center center no-repeat;
-    background-size: contain;
+    /*overflow:hidden;*/
+    /*background: url("../Images/marioBackGround.png") #2e3831 center center no-repeat;*/
+    /*background-size: contain;*/
 }
 
-#bckImg {
+#imageContainer {
+    height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 100%;
     transform: translate(-50%, -50%);
-    z-index: -100;
-}
-
-/*.content {*/
-/*    position: absolute;*/
-/*    top: 55%;*/
-/*    left: 50%;*/
-/*    height: 70%;*/
-/*    width: 55%;*/
-/*    transform: translate(-50%, -50%);*/
-/*}*/
-
-#algorithm_container {
+    display: table-cell;
     border: 2px solid #000000;
 }
 
+#bckImg {
+    height: 100%;
+    width: auto;
+    z-index: -100;
+}
 
-/*#algorithm_container {*/
-/*    align-content: center;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    border: 2px solid #000000;*/
-/*}*/
+#algorithm_container {
+    position: absolute;
+    border: 2px solid #000000;
+    top: 53%;
+    left: 50%;
+    height: 75%;
+    width: 65%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
 
 #Title {
+    position: absolute;
     color: #1a1818;
     text-align: center;
     font-family: "Lucida Console", Times, serif;
     font-style: normal;
     font-size: 4.5em;
     font-weight: bold;
-
+    top: 5%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
 }
