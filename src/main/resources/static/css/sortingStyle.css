@@ -1,0 +1,72 @@
+
+/*html, body {*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    background: url("../Images/marioBackGround.png") #2e3831 center center no-repeat;*/
+/*    -webkit-background-size: contain;*/
+/*    -moz-background-size: contain;*/
+/*    -o-background-size: contain;*/
+/*    background-size: contain;*/
+/*}*/
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #2e3831 center center;
+}
+
+.wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    background: url("../Images/marioBackGround.png") #2e3831 center center no-repeat;
+    background-size: contain;
+}
+
+#bckImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+}
+
+/*.content {*/
+/*    position: absolute;*/
+/*    top: 55%;*/
+/*    left: 50%;*/
+/*    height: 70%;*/
+/*    width: 55%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
+
+#algorithm_container {
+    border: 2px solid #000000;
+}
+
+
+/*#algorithm_container {*/
+/*    align-content: center;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    border: 2px solid #000000;*/
+/*}*/
+
+#Title {
+    color: #1a1818;
+    text-align: center;
+    font-family: "Lucida Console", Times, serif;
+    font-style: normal;
+    font-size: 4.5em;
+    font-weight: bold;
+
+}

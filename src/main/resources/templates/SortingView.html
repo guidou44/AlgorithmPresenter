@@ -6,9 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel = "stylesheet"
           type = "text/css"
-          href = "css/indexStyle.css" />
+          href = "css/sortingStyle.css" />
+    <script>
+        $(document).ready(function(){
+
+            var width_split = $(document.getElementById('bckImg')).width();
+            width_split = Math.floor(width_split / 2);
+            $(document).resize(function(){
+                var width_split = $(document.getElementById('bckImg')).width();
+                width_split = Math.floor(width_split / 2);
+                $('#algorithm_container').css("width", width_split+'px');//ADD THIS
+            });
+
+            $('#algorithm_container').css("width", width_split+'px');//ADD THIS
+        });
+    </script>
 </head>
+
 <body>
+<div class="wrap">
+    <h1 id="Title">Sorting Algorithm</h1>
+    <img src="Images/marioBackGround.png" id="bckImg"/>
+    <div id="algorithm_container" class="content">
+<!--    </div>-->
+</div>
+
+
+
 
 </body>
 </html>

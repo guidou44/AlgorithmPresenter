@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 public class SortingController extends ControllerBase {
 
     @GetMapping("/SortingAlgorithm")
-    public String greeting() {
+    public String getSortingView() {
         return getMainViewName();
     }
 
