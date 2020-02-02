@@ -4,32 +4,41 @@
     <title>Sorting algorithm</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel = "stylesheet"
           type = "text/css"
           href = "css/sortingStyle.css" />
-<!--    <script type="text/javascript">-->
-<!--            function resizeDivFromBckImage(div) {-->
-<!--                var imgBckGnd = document.getElementById("bckImg");-->
-<!--                div.width = imgBckGnd.offsetWidth;-->
-<!--                div.height = imgBckGnd.offsetHeight;-->
-<!--            }-->
-<!--    </script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/CollectionManager.js"></script>
 </head>
 
-<body>
-<div class="wrap">
+<body id="body" onload="getNewCollection()">
 
-    <div id="imageContainer">
-        <div id="Title">Sorting Algorithm</div>
-        <img src="Images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
-        <div id="algorithm_container">
-            <ul id="collection_container">
 
-            </ul>
+
+<div class="container">
+    <div id="collectionLengthContainer">
+        <label id="CollectionLengthText" for="collectionLength">List length :</label>
+        <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
+        <div>
+            <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
+            <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
         </div>
     </div>
 
+    <div id="imageContainer">
+        <div id="TitleContainer">
+            <p id="Title">Sorting Algorithm</p>
+        </div>
+        <img src="Images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
 
+        <div id="algorithm_container">
+            <ul id="collection_container">
+            </ul>
+        </div>
+    </div>
 </div>
 
 
