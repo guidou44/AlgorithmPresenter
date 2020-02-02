@@ -16,33 +16,46 @@
 
 <body id="body" onload="getNewCollection()">
 
-
-
-<div class="container">
-    <div id="collectionLengthContainer">
-        <label id="CollectionLengthText" for="collectionLength">List length :</label>
-        <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
-        <div>
-            <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
-            <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
+<div class="container-fluid" id="mainContainer">
+    <div class="row">
+        <div class="col-md-3 no-float">
+            <div id="collectionLengthContainer">
+                <div id="collectionLengthSubContainer">
+                    <div id="collectionLengthSubSubContainer">
+                        <div id="textLengthContainer">
+                            <label id="CollectionLengthText" for="collectionLength">List length :</label>
+                            <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
+                        </div>
+                        <div id="plusMinusButtonContainer">
+                            <div id="buttonWrapper">
+                                <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
+                                <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div id="imageContainer">
-        <div id="TitleContainer">
-            <p id="Title">Sorting Algorithm</p>
-        </div>
-        <img src="Images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
+        <div class="col-md-6 no-float">
+            <div id="imageContainer">
+                <div id="TitleContainer">
+                    <h1 id="Title">Sorting Algorithm</h1>
+                </div>
+                <img src="Images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
 
-        <div id="algorithm_container">
-            <ul id="collection_container">
-            </ul>
+                <div id="algorithm_container">
+                    <ul id="collection_container">
+                    </ul>
+                </div>
+            </div>
         </div>
+        <div class="col-md-3 no-float">
+
+        </div>
+
     </div>
 </div>
-
-
-
 
 </body>
 </html>

@@ -22,7 +22,7 @@ function getNewCollection() {
         });
     }
 
-    console.log(document.getElementById("imageContainer").offsetWidth);
+    console.log(document.getElementById("mainContainer").offsetWidth);
 }
 
 function generateArray() {
