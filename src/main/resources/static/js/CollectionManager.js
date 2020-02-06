@@ -25,24 +25,12 @@ function getNewCollection() {
   console.log(document.getElementById("mainContainer").offsetWidth);
 }
 
-function generateArray() {
+function generateFixedArray() {
   var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   var elementWidthPercent = Math.round((100 / list.length) - 0.5);
   var mainUl = document.getElementById("collection_container");
-  for (var j = 0; j < list.length; j++) {
-    var _childLi = document.createElement("li");
-    var childDiv = document.createElement("div");
-    _childLi.style.width = elementWidthPercent.toString() + "%";
-    childDiv.style.width = elementWidthPercent.toString() + "%";
-    for (var i = 0; i < list[j]; i++) {
-      var _img = document.createElement("img");
-      _img.src = "../Images/marioEndTile.png";
-      _img.alt = "not found";
-      childDiv.appendChild(_img);
-    }
-    _childLi.appendChild(childDiv);
-    mainUl.appendChild(_childLi);
-  }
+
+  generateArray(list, elementWidthPercent, mainUl);
 }
 
 function generateArrayFromResponse(list) {
@@ -51,19 +39,25 @@ function generateArrayFromResponse(list) {
   var mainUl = document.getElementById('collection_container');
   mainUl.innerHTML = "";
 
+  generateArray(list, elementWidthPercent, mainUl);
+}
+
+function generateArray(list, elementWidthPercent, mainUl) {
   for (var j = 0; j < list.length; j++) {
-    var _childLi = document.createElement("li");
+    var childLi = document.createElement("li");
     var childDiv = document.createElement("div");
-    _childLi.style.width = elementWidthPercent.toString() + "%";
-    childDiv.style.width = elementWidthPercent.toString() + "%";
+    childLi.style.width = elementWidthPercent.toString() + "%";
+    childDiv.style.width = childLi.style.width;
+
     for (var i = 0; i < list[j]; i++) {
       var _img = document.createElement("img");
       _img.src = "../images/marioEndTile.png";
       _img.alt = "not found";
       childDiv.appendChild(_img);
     }
-    _childLi.appendChild(childDiv);
-    mainUl.appendChild(_childLi);
+
+    childLi.appendChild(childDiv);
+    mainUl.appendChild(childLi);
   }
 }
 
