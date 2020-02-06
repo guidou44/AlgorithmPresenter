@@ -1,117 +1,318 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.AlgorithmPresenter</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>AlgorithmPresenter</name>
-	<description>webb app to display algorithm in browser</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.4.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.AlgorithmPresenter</groupId>
+  <artifactId>algorith-presneter</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>AlgorithmPresenter</name>
+  <description>webb app to display algorithm in browser</description>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
+  <properties>
+    <!-- General -->
+    <maven-compiler.version>3.5</maven-compiler.version>
+    <java.version>11</java.version>
+    <exec-maven.version>1.2.1</exec-maven.version>
+    <main-class>com.algorithmpresenter.application.AlgorithmPresenterApplication</main-class>
 
-	<dependencies>
+    <!-- Make build platform independent -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-		</dependency>
+    <!-- logging -->
+    <slf4j-simple.version>1.7.25</slf4j-simple.version>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+    <!-- test frameworks -->
+    <junit5.version>5.5.2</junit5.version>
+    <maven-surefire.version>2.22.1</maven-surefire.version>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+    <!-- code coverage -->
+    <jacoco-maven.version>0.8.5</jacoco-maven.version>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+    <!-- linter -->
+    <checkstyle.version>3.1.0</checkstyle.version>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+    <!-- spring-boot -->
+    <spring-boot-maven-version>2.2.4.RELEASE</spring-boot-maven-version>
 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+    <!-- deployment -->
+    <jar-file-name>ALGORITHM-PRESENTER-1.0-SNAPSHOT</jar-file-name>
+    <heroku-maven.version>2.0.16</heroku-maven.version>
+    <heroku-maven.appName>algorithm-presenter</heroku-maven.appName>
+    <maven-jar.version>2.4</maven-jar.version>
+    <shade-maven.version>3.2.1</shade-maven.version>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+    <!-- Js socket client Version-->
+    <sockjs-client-version>1.0.2</sockjs-client-version>
+    <stomp-websocket-version>2.3.3</stomp-websocket-version>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator-core</artifactId>
-		</dependency>
+    <!-- Bootstrap-->
+    <bootstrap-version>3.3.7</bootstrap-version>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>sockjs-client</artifactId>
-			<version>1.0.2</version>
-		</dependency>
+    <!-- JQuery-->
+    <jquery-verison>3.1.0</jquery-verison>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>stomp-websocket</artifactId>
-			<version>2.3.3</version>
-		</dependency>
+  </properties>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>3.3.7</version>
-		</dependency>
+  <dependencies>
 
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>jquery</artifactId>
-			<version>3.1.0</version>
-		</dependency>
+    <!-- Spring Framework-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webflux</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-		</dependency>
-	</dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>2.2.4.RELEASE</version>
-				<goals>
-					<goal>run</goal>
-				</goals>
-			</plugin>
-		</plugins>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
 
-	</build>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+    </dependency>
+
+    <!-- Spring MySQL framework-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.junit.vintage</groupId>
+          <artifactId>junit-vintage-engine</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+
+    <!-- Js client-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>webjars-locator-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>sockjs-client</artifactId>
+      <version>${sockjs-client-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>stomp-websocket</artifactId>
+      <version>${stomp-websocket-version}</version>
+    </dependency>
+
+    <!-- JQuery-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>jquery</artifactId>
+      <version>${jquery-verison}</version>
+    </dependency>
+
+    <!-- Bootstrap-->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>${bootstrap-version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- general -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler.version}</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven.version}</version>
+        <configuration>
+          <mainClass>${main-class}</mainClass>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot-maven-version}</version>
+        <goals>
+          <goal>run</goal>
+        </goals>
+      </plugin>
+
+      <!-- linter -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${checkstyle.version}</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+          <consoleOutput>true</consoleOutput>
+          <configLocation>checkstyle.xml</configLocation>
+        </configuration>
+      </plugin>
+
+      <!-- test -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire.version}</version>
+      </plugin>
+
+      <!-- code coverage -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco-maven.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>generate-code-coverage-report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <!-- avoid third parties dependencies duplication
+            warnings -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar.version}</version>
+        <configuration>
+          <forceCreation>true</forceCreation>
+        </configuration>
+      </plugin>
+
+      <!-- fat jar plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>${spring-boot-maven-version}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  <resource>META-INF/spring.handlers</resource>
+                </transformer>
+                <transformer
+                  implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
+                  <resource>META-INF/spring.factories</resource>
+                </transformer>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  <resource>META-INF/spring.schemas</resource>
+                </transformer>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>${main-class}</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+        </configuration>
+      </plugin>
+
+      <!-- deployment -->
+      <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>${heroku-maven.version}</version>
+        <configuration>
+          <appName>${heroku-maven.appName}</appName>
+          <includeTarget>false</includeTarget>
+          <includes>
+            <include>target/${jar-file-name}.jar</include>
+          </includes>
+          <processTypes>
+            <web>java -Dport=$PORT -jar target/${jar-file-name}.jar</web>
+          </processTypes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <!-- code coverage -->
+      <!-- select non-aggregate reports -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>

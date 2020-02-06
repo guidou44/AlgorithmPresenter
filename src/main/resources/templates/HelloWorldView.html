@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Getting Started: Serving Web Content</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'"/>
-<a href="javascript:void" onclick="sendRequest()">Send Request</a>
 <div id="sseDiv"></div>
 
 <script>
-function sendRequest(){
-if(typeof(EventSource) !== "undefined") {
-    var source = new EventSource("/comment/stream");
+  function sendRequest() {
+    if (typeof (EventSource) !== "undefined") {
+      var source = new EventSource("/comment/stream");
 
-    source.onmessage = function(event) {
+      source.onmessage = function (event) {
         document.getElementById("sseDiv").innerHTML += event.data + " - ";
-    };
-} else {
-    document.getElementById("sseDiv").innerHTML =
-                     "Your browser does not support server-sent events.";
-}
-}
+      };
+    } else {
+      document.getElementById("sseDiv").innerHTML =
+          "Your browser does not support server-sent events.";
+    }
+  }
 </script>
 </body>
 </html>

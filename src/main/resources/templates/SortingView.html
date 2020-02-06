@@ -1,60 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sorting algorithm</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel = "stylesheet"
-          type = "text/css"
-          href = "css/sortingStyle.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/CollectionManager.js"></script>
+  <title>Sorting algorithm</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet"
+        type="text/css"
+        href="css/sortingStyle.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/CollectionManager.js"></script>
 </head>
 
 <body id="body" onload="getNewCollection()">
 
 <div class="container-fluid" id="mainContainer">
-    <div class="row">
-        <div class="col-md-3 no-float">
-            <div id="collectionLengthContainer">
-                <div id="collectionLengthSubContainer">
-                    <div id="collectionLengthSubSubContainer">
-                        <div id="textLengthContainer">
-                            <label id="CollectionLengthText" for="collectionLength">List length :</label>
-                            <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
-                        </div>
-                        <div id="plusMinusButtonContainer">
-                            <div id="buttonWrapper">
-                                <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
-                                <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="row">
+    <div class="col-md-3 no-float">
+      <div id="collectionLengthContainer">
+        <div id="collectionLengthSubContainer">
+          <div id="collectionLengthSubSubContainer">
+            <div id="textLengthContainer">
+              <label id="CollectionLengthText" for="collectionLength">List length :</label>
+              <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
             </div>
-        </div>
-
-        <div class="col-md-6 no-float">
-            <div id="imageContainer">
-                <div id="TitleContainer">
-                    <h1 id="Title">Sorting Algorithm</h1>
-                </div>
-                <img src="Images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
-
-                <div id="algorithm_container">
-                    <ul id="collection_container">
-                    </ul>
-                </div>
+            <div id="plusMinusButtonContainer">
+              <div id="buttonWrapper">
+                <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
+                <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="col-md-3 no-float">
+      </div>
+    </div>
 
+    <div class="col-md-6 no-float">
+      <div id="imageContainer">
+        <div id="TitleContainer">
+          <h1 id="Title">Sorting Algorithm</h1>
         </div>
+        <img src="images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
+
+        <div id="algorithm_container">
+          <ul id="collection_container">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 no-float">
 
     </div>
+
+  </div>
 </div>
 
 </body>

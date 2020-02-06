@@ -1,202 +1,202 @@
 
 html, body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    background: #2e3831 center center;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: #2e3831 center center;
 
 }
 
 .container-fluid, .w-screen {
-    display:table;
-    height: 100%;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: hidden;
+  display: table;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.row
-{
-    height: 100%;
-    display: table-row;
-    overflow: hidden;
+.row {
+  height: 100%;
+  display: table-row;
+  overflow: hidden;
 }
+
 @media (min-width: 992px) {
-    .row .no-float {
-        display: table-cell;
-        float: none;
-    }
+  .row .no-float {
+    display: table-cell;
+    float: none;
+  }
 }
 
 .col-md-3, .col-md-6 {
-    padding: 0;
+  padding: 0;
 }
 
 /*-----------------Middle Panel-------------------------*/
 
 #imageContainer {
 
-    height: auto;
-    width:100%;
+  height: auto;
+  width: 100%;
 
-    position: absolute;
-    top: 50%;
-    transform: perspective(1px) translateY(-50%);
+  position: absolute;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
 
-    border: 2px solid #000000;
-    overflow: hidden;
+  border: 2px solid #000000;
+  overflow: hidden;
 }
 
 #bckImg {
-    height: auto;
-    width: 100%;
-    z-index: -100;
+  height: auto;
+  width: 100%;
+  z-index: -100;
 }
 
 #TitleContainer {
-    position: absolute;
-    text-align: center;
-    top: 3%;
-    width: 100%;
-    z-index: 2;
+  position: absolute;
+  text-align: center;
+  top: 3%;
+  width: 100%;
+  z-index: 2;
 }
 
 #Title {
-    width: 100%;
+  width: 100%;
 
-    color: #1a1818;
-    font-family: "Lucida Console", Times, serif;
-    font-style: normal;
-    font-size: 260%;
-    font-weight: bold;
-    z-index: 2;
+  color: #1a1818;
+  font-family: "Lucida Console", Times, serif;
+  font-style: normal;
+  font-size: 260%;
+  font-weight: bold;
+  z-index: 2;
 }
 
 #algorithm_container {
-    position: absolute;
-    border: 2px solid #000000;
+  position: absolute;
+  border: 2px solid #000000;
 
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    height: 75%;
-    width: 65%;
+  height: 75%;
+  width: 65%;
 
-    z-index: 0;
-    padding: 0;
+  z-index: 0;
+  padding: 0;
 }
 
 
 #collection_container {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    marker-offset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  marker-offset: 0;
 }
 
-#collection_container li{
-    height: 100%;
-    display: inline-block;
-    margin: 0;
+#collection_container li {
+  height: 100%;
+  display: inline-block;
+  margin: 0;
 }
 
-#collection_container li div{
-    margin: 0;
-    position: absolute;
-    bottom: 0;
+#collection_container li div {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
 }
 
-#collection_container div img{
-    width: 100%;
-    margin: 0;
+#collection_container div img {
+  width: 100%;
+  margin: 0;
 }
 
 /*-----------------Left Panel-------------------------*/
 
 #collectionLengthContainer {
-     position: relative;
-     height: 100%;
-     width: 100%;
- }
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
 
 #collectionLengthSubContainer {
-    position: relative;
-    width: 95%;
-    margin-left: 5%;
-    top: 50%;
-    transform: perspective(1px) translateY(-50%);
-    display: table;
+  position: relative;
+  width: 95%;
+  margin-left: 5%;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  display: table;
 }
 
 #collectionLengthSubSubContainer {
-    display: table-row;
-    text-align: center;
+  display: table-row;
+  text-align: center;
 }
 
 #textLengthContainer {
-    width: 70%;
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-    margin-right: 0;
-    margin-left: auto;
+  width: 70%;
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 #CollectionLengthText {
-    width: auto;
+  width: auto;
 }
 
 #CollectionLengthText, #collectionLength {
-    text-align: center;
-    color: #06ff03;
-    font-family: "Lucida Console", Times, serif;
-    font-style: normal;
-    font-size: 150%;
-    font-weight: bold;
+  text-align: center;
+  color: #06ff03;
+  font-family: "Lucida Console", Times, serif;
+  font-style: normal;
+  font-size: 150%;
+  font-weight: bold;
 }
 
 #collectionLength {
-    width: 15%;
-    background: black;
-    border: 2px solid #06ff03;
-    padding: 2px;
+  width: 15%;
+  background: black;
+  border: 2px solid #06ff03;
+  padding: 2px;
 }
 
 #plusMinusButtonContainer {
-    margin-left: 0;
-    margin-right: auto;
+  margin-left: 0;
+  margin-right: auto;
 
-    display: table-cell;
-    vertical-align: center;
+  display: table-cell;
+  vertical-align: center;
 }
 
 #buttonWrapper {
-    display: grid;
-    margin-left: 5px;
-    margin-right: auto;
+  display: grid;
+  margin-left: 5px;
+  margin-right: auto;
 }
 
 #buttonWrapper button {
-    cursor: pointer;
-    width: 29px;
-    height: 29px;
-    float: left;
-    text-align: center;
+  cursor: pointer;
+  width: 29px;
+  height: 29px;
+  float: left;
+  text-align: center;
 
-    font-family: "Lucida Console", Times, serif;
-    font-style: normal;
-    font-weight: bold;
+  font-family: "Lucida Console", Times, serif;
+  font-style: normal;
+  font-weight: bold;
 
-    background-color: black;
-    border: 2px solid #06ff03;
-    border-radius: 20%;
-    color: #06ff03;
+  background-color: black;
+  border: 2px solid #06ff03;
+  border-radius: 20%;
+  color: #06ff03;
 }
 
 #buttonWrapper button:hover {
-    background-color: #224b24;
-    border: 2px solid #068103;
+  background-color: #224b24;
+  border: 2px solid #068103;
 }
 
