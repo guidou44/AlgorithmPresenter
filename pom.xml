@@ -10,14 +10,14 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.AlgorithmPresenter</groupId>
-  <artifactId>algorith-presneter</artifactId>
+  <artifactId>algorithm-presenter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>AlgorithmPresenter</name>
   <description>webb app to display algorithm in browser</description>
 
   <properties>
     <!-- General -->
-    <maven-compiler.version>3.5</maven-compiler.version>
+    <maven-compiler.version>3.8.0</maven-compiler.version>
     <java.version>11</java.version>
     <exec-maven.version>1.2.1</exec-maven.version>
     <main-class>com.algorithmpresenter.application.AlgorithmPresenterApplication</main-class>
@@ -42,7 +42,7 @@
     <spring-boot-maven-version>2.2.4.RELEASE</spring-boot-maven-version>
 
     <!-- deployment -->
-    <jar-file-name>ALGORITHM-PRESENTER-1.0-SNAPSHOT</jar-file-name>
+    <jar-file-name>algorithm-presenter-0.0.1-SNAPSHOT</jar-file-name>
     <heroku-maven.version>2.0.16</heroku-maven.version>
     <heroku-maven.appName>algorithm-presenter</heroku-maven.appName>
     <maven-jar.version>2.4</maven-jar.version>
@@ -171,13 +171,32 @@
         </configuration>
       </plugin>
 
+<!--      <plugin>-->
+<!--        <groupId>org.springframework.boot</groupId>-->
+<!--        <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--        <version>${spring-boot-maven-version}</version>-->
+<!--        <goals>-->
+<!--          <goal>run</goal>-->
+<!--        </goals>-->
+<!--      </plugin>-->
+
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <version>${spring-boot-maven-version}</version>
-        <goals>
-          <goal>run</goal>
-        </goals>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+            <configuration>
+              <classifier>spring-boot</classifier>
+              <mainClass>
+                com.algorithmpresenter.application.AlgorithmPresenterApplication
+              </mainClass>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
       <!-- linter -->
@@ -231,53 +250,6 @@
         </configuration>
       </plugin>
 
-      <!-- fat jar plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>2.4.3</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-            <version>${spring-boot-maven-version}</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <transformers>
-                <transformer
-                  implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                  <resource>META-INF/spring.handlers</resource>
-                </transformer>
-                <transformer
-                  implementation="org.springframework.boot.maven.PropertiesMergingResourceTransformer">
-                  <resource>META-INF/spring.factories</resource>
-                </transformer>
-                <transformer
-                  implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                  <resource>META-INF/spring.schemas</resource>
-                </transformer>
-                <transformer
-                  implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                <transformer
-                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>${main-class}</mainClass>
-                </transformer>
-              </transformers>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <createDependencyReducedPom>false</createDependencyReducedPom>
-        </configuration>
-      </plugin>
-
       <!-- deployment -->
       <plugin>
         <groupId>com.heroku.sdk</groupId>
@@ -286,9 +258,13 @@
         <configuration>
           <appName>${heroku-maven.appName}</appName>
           <includeTarget>false</includeTarget>
+          <buildpacks>
+            <buildpack>heroku/jvm</buildpack>
+          </buildpacks>
           <includes>
             <include>target/${jar-file-name}.jar</include>
           </includes>
+          <jdkVersion>${java.version}</jdkVersion>
           <processTypes>
             <web>java -Dport=$PORT -jar target/${jar-file-name}.jar</web>
           </processTypes>
