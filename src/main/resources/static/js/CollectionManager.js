@@ -58,7 +58,7 @@ function generateArrayFromResponse(list) {
     childDiv.style.width = elementWidthPercent.toString() + "%";
     for (var i = 0; i < list[j]; i++) {
       var _img = document.createElement("img");
-      _img.src = "../Images/marioEndTile.png";
+      _img.src = "../images/marioEndTile.png";
       _img.alt = "not found";
       childDiv.appendChild(_img);
     }
