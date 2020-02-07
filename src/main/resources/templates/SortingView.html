@@ -20,20 +20,34 @@
 <div class="container-fluid" id="mainContainer">
   <div class="row">
     <div class="col-md-3 no-float">
-      <div id="collectionLengthContainer">
-        <div id="collectionLengthSubContainer">
-          <div id="collectionLengthSubSubContainer">
-            <div id="textLengthContainer">
-              <label id="CollectionLengthText" for="collectionLength">List length :</label>
-              <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
-            </div>
-            <div id="plusMinusButtonContainer">
-              <div id="buttonWrapper">
-                <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
-                <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
+      <div id="LeftPanelContentContainer">
+        <div id="LeftPanelPositionContainer">
+
+          <div id="collectionLengthSubContainer" class="LeftPanelSubContainer">
+            <div id="collectionLengthSubSubContainer">
+              <div id="textLengthContainer">
+                <label id="CollectionLengthText" for="collectionLength">List length :</label>
+                <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
+              </div>
+              <div id="plusMinusButtonContainer">
+                <div id="buttonWrapper">
+                  <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
+                  <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
+                </div>
               </div>
             </div>
           </div>
+
+          <div id="RefreshCollectionSubContainer" class="LeftPanelSubContainer">
+            <div id="RefreshCollectionSubSubContainer">
+            </div>
+          </div>
+
+          <div id="SelectAndLaunchAlgorithmSubContainer" class="LeftPanelSubContainer">
+            <div id="SelectAndLaunchAlgorithmSubSubContainer">
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
