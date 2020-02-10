@@ -17,8 +17,7 @@ html, body {
 }
 
 #mainContainer {
-  min-width: 720px;
-  max-width: 1440px;
+  width: 1080px;
 }
 
 .row {
@@ -65,10 +64,9 @@ html, body {
 #TitleContainer {
   position: absolute;
   text-align: center;
-  top: 40px;
+  top: 5px;
   width: 100%;
-  height: 50px;
-  max-height: 50px;
+  height: 30px;
   z-index: 2;
 }
 
@@ -77,6 +75,7 @@ html, body {
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
   font-weight: bold;
+  font-size: 150%;
   z-index: 2;
 }
 
@@ -137,7 +136,7 @@ html, body {
 
 .SidePanelSubContainer {
   width: 90%;
-  height: 80px;
+  min-height: 80px;
   margin: 10px;
   display: table;
   background: #6B8CFF;
@@ -147,21 +146,40 @@ html, body {
 
 .SidePanelSubSubContainer {
   width: 100%;
+  white-space: nowrap;
 }
 
-#TextLengthContainer,
-#RefreshCollectionText,
-#DescriptionTitleContainer {
-  width: 90%;
+#TextLengthContainer {
   display: table-cell;
+}
+
+
+#TextLengthContainer,
+#RefreshButtonContainer,
+#DescriptionTitleContainer,
+#AlgorithmSelectionContainer{
+  width: 100%;
+  height: 100%;
   vertical-align: middle;
+  white-space: nowrap;
 }
 
 #TextLengthContainer,
-#RefreshCollectionText {
+#RefreshButtonContainer,
+#AlgorithmSelectionContainer{
   margin-right: 0;
   margin-left: auto;
   text-align: right;
+}
+
+#RefreshButtonContainer {
+  display: table-cell;
+}
+
+#RefreshButtonTextContainer {
+  height: 100%;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 #DescriptionTitleContainer {
@@ -179,9 +197,9 @@ html, body {
   color: #1a1818;
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
-  font-size: 20px;
   font-weight: bold;
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 #collectionLength {
@@ -194,7 +212,6 @@ html, body {
 .LeftPanelButtonContainer {
   margin-left: 0;
   margin-right: auto;
-
   display: table-cell;
   vertical-align: center;
 }
@@ -225,9 +242,10 @@ html, body {
   background-color: #007376;
 }
 
-#RefreshCollectionButton {
-  width: 60px;
+#RefreshCollectionButton, #TEMP_BUTTON {
+  width: 10px;
   margin-left: 5px;
+  display: inline-block;
 }
 
 #RefreshCollectionButton:hover {

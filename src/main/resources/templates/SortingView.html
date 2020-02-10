@@ -22,6 +22,7 @@
     <div class="col-md-3 no-float">
       <div id="LeftPanelContentContainer" class="SidePanelContentContainer">
         <div id="LeftPanelPositionContainer" class = "SidePanelPositionContainer">
+
           <div id="collectionLengthSubContainer" class="SidePanelSubContainer">
             <div id="collectionLengthSubSubContainer" class="SidePanelSubSubContainer">
               <div id="TextLengthContainer">
@@ -42,8 +43,10 @@
           <div id="RefreshCollectionSubContainer" class="SidePanelSubContainer">
             <div id="RefreshCollectionSubSubContainer" class="SidePanelSubSubContainer">
               <div id="RefreshButtonContainer">
-                <label id="RefreshCollectionText" class="SidePanelText"
-                       for="RefreshCollectionButton">Randomize list :</label>
+                <div id="RefreshButtonTextContainer">
+                  <label id="RefreshCollectionText" class="SidePanelText"
+                         for="RefreshCollectionButton">Randomize list :</label>
+                </div>
                 <div class="LeftPanelButtonContainer">
                   <input id="RefreshCollectionButton"
                          type="image"
@@ -56,24 +59,32 @@
             </div>
           </div>
 
-          <div id="SelectAndLaunchAlgorithmSubContainer" class="LeftPanelSubContainer">
-            <div id="SelectAndLaunchAlgorithmSubSubContainer">
+          <div id="SetAndLaunchAlgorithmSubContainer" class="SidePanelSubContainer">
+            <div id="SetAndLaunchAlgorithmSubSubContainer" class="SidePanelSubSubContainer">
+              <div id="AlgorithmSelectionContainer">
+                <label id="TEMP" class="SidePanelText"
+                       for="RefreshCollectionButton">Randomize list :</label>
+                <div class="LeftPanelButtonContainer">
+                  <input id="TEMP_BUTTON"
+                         type="image"
+                         src="images/marioRandomBlock.png"
+                         alt="RANDOM"
+                         onclick="getNewCollection()"
+                         class="refreshButton"/>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
+
     <div class="col-md-6 no-float">
       <div id="imageContainer">
-
         <div id="TitleContainer">
           <h1 id="Title" class="text-nowrap">Sorting Algorithm</h1>
         </div>
-
-
         <img src="images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
-
         <div id="algorithm_container">
           <ul id="collection_container">
           </ul>
