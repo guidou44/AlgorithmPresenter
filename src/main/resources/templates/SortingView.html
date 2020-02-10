@@ -20,16 +20,17 @@
 <div class="container-fluid" id="mainContainer">
   <div class="row">
     <div class="col-md-3 no-float">
-      <div id="LeftPanelContentContainer">
-        <div id="LeftPanelPositionContainer">
-
-          <div id="collectionLengthSubContainer" class="LeftPanelSubContainer">
-            <div id="collectionLengthSubSubContainer">
-              <div id="textLengthContainer">
-                <label id="CollectionLengthText" for="collectionLength">List length :</label>
+      <div id="LeftPanelContentContainer" class="SidePanelContentContainer">
+        <div id="LeftPanelPositionContainer" class = "SidePanelPositionContainer">
+          <div id="collectionLengthSubContainer" class="SidePanelSubContainer">
+            <div id="collectionLengthSubSubContainer" class="SidePanelSubSubContainer">
+              <div id="TextLengthContainer">
+                <label id="CollectionLengthText" for="collectionLength" class="SidePanelText">
+                  List length :
+                </label>
                 <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
               </div>
-              <div id="plusMinusButtonContainer">
+              <div class="LeftPanelButtonContainer">
                 <div id="buttonWrapper">
                   <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
                   <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
@@ -38,8 +39,20 @@
             </div>
           </div>
 
-          <div id="RefreshCollectionSubContainer" class="LeftPanelSubContainer">
-            <div id="RefreshCollectionSubSubContainer">
+          <div id="RefreshCollectionSubContainer" class="SidePanelSubContainer">
+            <div id="RefreshCollectionSubSubContainer" class="SidePanelSubSubContainer">
+              <div id="RefreshButtonContainer">
+                <label id="RefreshCollectionText" class="SidePanelText"
+                       for="RefreshCollectionButton">Randomize list :</label>
+                <div class="LeftPanelButtonContainer">
+                  <input id="RefreshCollectionButton"
+                         type="image"
+                         src="images/marioRandomBlock.png"
+                         alt="RANDOM"
+                         onclick="getNewCollection()"
+                         class="refreshButton"/>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -53,9 +66,12 @@
     </div>
     <div class="col-md-6 no-float">
       <div id="imageContainer">
+
         <div id="TitleContainer">
-          <h1 id="Title">Sorting Algorithm</h1>
+          <h1 id="Title" class="text-nowrap">Sorting Algorithm</h1>
         </div>
+
+
         <img src="images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
 
         <div id="algorithm_container">
@@ -64,7 +80,20 @@
         </div>
       </div>
     </div>
+
+<!--    col-md-3 no-float-->
     <div class="col-md-3 no-float">
+      <div id="RightPanelContentContainer" class="SidePanelContentContainer">
+        <div id="RightPanelPositionContainer" class="SidePanelPositionContainer">
+          <div id="AlgorithmDescriptionSubContainer" class="SidePanelSubContainer">
+            <div id="AlgorithmDescriptionSubSubContainer" class="SidePanelSubSubContainer">
+              <div id="DescriptionTitleContainer">
+                <p class="SidePanelText">Description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -16,6 +16,11 @@ html, body {
   background: #2e3831 center center;
 }
 
+#mainContainer {
+  min-width: 720px;
+  max-width: 1440px;
+}
+
 .row {
   height: 100%;
   display: table-row;
@@ -29,7 +34,11 @@ html, body {
   }
 }
 
-.col-md-3, .col-md-6 {
+.col-md-3 {
+  padding: 0;
+}
+
+.col-md-6 {
   padding: 0;
 }
 
@@ -43,7 +52,7 @@ html, body {
   position: absolute;
   top: 50%;
   transform: perspective(1px) translateY(-50%);
-
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -56,18 +65,17 @@ html, body {
 #TitleContainer {
   position: absolute;
   text-align: center;
-  top: 3%;
+  top: 40px;
   width: 100%;
+  height: 50px;
+  max-height: 50px;
   z-index: 2;
 }
 
 #Title {
-  width: 100%;
-
   color: #1a1818;
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
-  font-size: 260%;
   font-weight: bold;
   z-index: 2;
 }
@@ -112,66 +120,78 @@ html, body {
   margin: 0;
 }
 
-/*-----------------Left Panel-------------------------*/
+/*-----------------Left Panel/Right Panel-------------------------*/
 
-#LeftPanelContentContainer {
+.SidePanelContentContainer {
   position: relative;
   height: 100%;
   width: 100%;
 }
 
-#LeftPanelPositionContainer {
+.SidePanelPositionContainer {
   position: relative;
   width: 100%;
   transform: perspective(1px) translateY(-50%);
   top: 50%;
 }
 
-.LeftPanelSubContainer {
+.SidePanelSubContainer {
   width: 90%;
-  margin: 5%;
+  height: 80px;
+  margin: 10px;
   display: table;
-  border: 4px solid #06b903;
+  background: #6B8CFF;
   border-radius: 10px;
   padding: 10px;
 }
 
-
-#collectionLengthSubSubContainer {
-  display: table-row;
-  text-align: center;
+.SidePanelSubSubContainer {
+  width: 100%;
 }
 
-#textLengthContainer {
-  width: 70%;
+#TextLengthContainer,
+#RefreshCollectionText,
+#DescriptionTitleContainer {
+  width: 90%;
   display: table-cell;
-  text-align: right;
   vertical-align: middle;
+}
+
+#TextLengthContainer,
+#RefreshCollectionText {
   margin-right: 0;
   margin-left: auto;
+  text-align: right;
+}
+
+#DescriptionTitleContainer {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
 }
 
 #CollectionLengthText {
   width: auto;
 }
 
-#CollectionLengthText, #collectionLength {
+.SidePanelText, #collectionLength {
   text-align: center;
-  color: #06ff03;
+  color: #1a1818;
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
-  font-size: 150%;
+  font-size: 20px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 #collectionLength {
   width: 15%;
-  background: black;
-  border: 2px solid #06ff03;
+  background: transparent;
+  border: 2px solid #1a1818;
   padding: 2px;
 }
 
-#plusMinusButtonContainer {
+.LeftPanelButtonContainer {
   margin-left: 0;
   margin-right: auto;
 
@@ -187,8 +207,8 @@ html, body {
 
 #buttonWrapper button {
   cursor: pointer;
-  width: 29px;
-  height: 29px;
+  width: 30px;
+  height: 30px;
   float: left;
   text-align: center;
 
@@ -197,13 +217,19 @@ html, body {
   font-weight: bold;
 
   background-color: black;
-  border: 2px solid #06ff03;
   border-radius: 20%;
-  color: #06ff03;
+  color: wheat;
 }
 
 #buttonWrapper button:hover {
-  background-color: #224b24;
-  border: 2px solid #068103;
+  background-color: #007376;
 }
 
+#RefreshCollectionButton {
+  width: 60px;
+  margin-left: 5px;
+}
+
+#RefreshCollectionButton:hover {
+  filter: invert(100%);
+}
