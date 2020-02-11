@@ -8,10 +8,14 @@
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
   <link rel="stylesheet"
         type="text/css"
         href="css/sortingStyle.css"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet"
+        type="text/css"
+        href="css/mainLayoutStyle.css"/>
   <script type="text/javascript" src="js/CollectionManager.js"></script>
 </head>
 
@@ -20,76 +24,92 @@
 <div class="container-fluid" id="mainContainer">
   <div class="row">
     <div class="col-md-3 no-float">
-      <div id="LeftPanelContentContainer" class="SidePanelContentContainer">
-        <div id="LeftPanelPositionContainer" class = "SidePanelPositionContainer">
+      <div class="SidePanelContentContainer">
+        <div class = "SidePanelPositionContainer">
 
-          <div id="collectionLengthSubContainer" class="SidePanelSubContainer">
-            <div id="collectionLengthSubSubContainer" class="SidePanelSubSubContainer">
-              <div id="TextLengthContainer">
-                <label id="CollectionLengthText" for="collectionLength" class="SidePanelText">
-                  List length :
-                </label>
-                <input type="text" id="collectionLength" value="10" onchange="getNewCollection()">
-              </div>
-              <div class="LeftPanelButtonContainer">
-                <div id="buttonWrapper">
-                  <button id="CollectionPlusButton" onclick="incrementCollectionSize()">+</button>
-                  <button id="CollectionMinusButton" onclick="decrementCollectionSize()">-</button>
+          <div class="SidePanelSubContainer">
+            <div class="SidePanelSubSubContainer">
+
+              <div class="SideContainerFlexLeft">
+                <div class="SideContentContainer LeftContentContainer">
+                  <label for="CollectionLength"
+                         class="SidePanelText SidePanelAutoWidthText">
+                    List length :
+                  </label>
+                  <input type="text" id="CollectionLength"
+                         class="SidePanelText SidePanelInputText"
+                         value="10"
+                         onchange="getNewCollection()">
+                </div>
+                <div class="AlignRightContainer TableButtonContainer">
+                  <div class="ButtonWrapper">
+                    <button onclick="incrementCollectionSize()">+</button>
+                    <button onclick="decrementCollectionSize()">-</button>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <div id="RefreshCollectionSubContainer" class="SidePanelSubContainer">
-            <div id="RefreshCollectionSubSubContainer" class="SidePanelSubSubContainer">
-              <div id="RefreshButtonContainer">
-                <div id="RefreshButtonTextContainer">
-                  <label id="RefreshCollectionText" class="SidePanelText"
+          <div class="SidePanelSubContainer">
+            <div class="SidePanelSubSubContainer">
+
+              <div class="SideContainerFlexLeft AlignRightContainer ">
+                <div>
+                  <label class="SidePanelText InlineBlockElement"
                          for="RefreshCollectionButton">Randomize list :</label>
                 </div>
-                <div class="LeftPanelButtonContainer">
+                <div class="InlineButtonContainer">
                   <input id="RefreshCollectionButton"
                          type="image"
                          src="images/marioRandomBlock.png"
                          alt="RANDOM"
                          onclick="getNewCollection()"
-                         class="refreshButton"/>
+                         class="RandomMarioBlockButton"/>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <div id="SetAndLaunchAlgorithmSubContainer" class="SidePanelSubContainer">
-            <div id="SetAndLaunchAlgorithmSubSubContainer" class="SidePanelSubSubContainer">
-              <div id="AlgorithmSelectionContainer">
-                <label id="TEMP" class="SidePanelText"
-                       for="RefreshCollectionButton">Randomize list :</label>
-                <div class="LeftPanelButtonContainer">
-                  <input id="TEMP_BUTTON"
+          <div class="SidePanelSubContainer">
+            <div class="SidePanelSubSubContainer">
+
+              <div class="SideContainerFlexLeft AlignRightContainer ">
+                <div>
+                  <label class="SidePanelText InlineBlockElement"
+                         for="RefreshCollectionButton">Randomize list :</label>
+                </div>
+                <div class="InlineButtonContainer">
+                  <input id="AlgorithmInput"
                          type="image"
                          src="images/marioRandomBlock.png"
                          alt="RANDOM"
                          onclick="getNewCollection()"
-                         class="refreshButton"/>
+                         class="RandomMarioBlockButton"/>
                 </div>
               </div>
+
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
 
     <div class="col-md-6 no-float">
-      <div id="imageContainer">
-        <div id="TitleContainer">
-          <h1 id="Title" class="text-nowrap">Sorting Algorithm</h1>
+        <div id="imageContainer" class="StaticMiddleContainer">
+          <div id="TitleContainer">
+            <h1 id="Title" class="text-nowrap">Sorting Algorithm</h1>
+          </div>
+          <img src="images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
+          <div id="algorithm_container">
+            <ul id="collection_container">
+            </ul>
+          </div>
         </div>
-        <img src="images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
-        <div id="algorithm_container">
-          <ul id="collection_container">
-          </ul>
-        </div>
-      </div>
     </div>
 
 <!--    col-md-3 no-float-->
@@ -98,7 +118,7 @@
         <div id="RightPanelPositionContainer" class="SidePanelPositionContainer">
           <div id="AlgorithmDescriptionSubContainer" class="SidePanelSubContainer">
             <div id="AlgorithmDescriptionSubSubContainer" class="SidePanelSubSubContainer">
-              <div id="DescriptionTitleContainer">
+              <div id="DescriptionTitleContainer" class="SideContentContainer AlignLeftContainer">
                 <p class="SidePanelText">Description</p>
               </div>
             </div>

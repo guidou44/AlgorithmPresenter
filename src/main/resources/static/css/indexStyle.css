@@ -1,29 +1,24 @@
 /* indexStyle.css */
-body {
-  background-color: #2e3831;
-  color: #25db5c;
-  margin: 50px
+
+.HeaderText {
+  font-size: 4.5em;
 }
 
-h1 {
+.IndexText {
   color: #25db5c;
   text-align: center;
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
-  font-size: 4.5em;
   font-weight: bold;
-
 }
 
-form {
+.ContentContainer form {
   margin: 30px;
-  font-family: "Lucida Console", Times, serif;
-  font-style: normal;
   font-size: 2.5em;
-  font-weight: bold;
 }
 
-#PathFinderAlgorithmButton, #SortingAlgorithmButton {
+
+.GoToAlgorithmButton {
   background-color: #31a34f;
   border: 2px solid #000000;
   border-radius: 14px;
@@ -38,6 +33,6 @@ form {
   cursor: pointer;
 }
 
-#PathFinderAlgorithmButton:hover, #SortingAlgorithmButton:hover {
+.GoToAlgorithmButton:hover {
   background-color: #7bf542;
 }

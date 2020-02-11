@@ -1,7 +1,7 @@
 function getNewCollection() {
 
   var collectionLength = parseInt(
-      document.getElementById("collectionLength").value, 10);
+      document.getElementById("CollectionLength").value, 10);
   if (collectionLength >= 3) {
     console.log(collectionLength);
     const Url = "/SortingAlgorithm/CollectionParameters";
@@ -62,7 +62,7 @@ function generateArray(list, elementWidthPercent, mainUl) {
 }
 
 function decrementCollectionSize() {
-  var sizeInput = document.getElementById("collectionLength");
+  var sizeInput = document.getElementById("CollectionLength");
   if (sizeInput.value > 3) {
     sizeInput.value = parseInt(sizeInput.value, 10) - 1;
     getNewCollection();
@@ -70,7 +70,7 @@ function decrementCollectionSize() {
 }
 
 function incrementCollectionSize() {
-  var sizeInput = document.getElementById("collectionLength");
+  var sizeInput = document.getElementById("CollectionLength");
   sizeInput.value = parseInt(sizeInput.value, 10) + 1;
   getNewCollection();
 }

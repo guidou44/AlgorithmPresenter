@@ -1,0 +1,42 @@
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: black center center;
+
+}
+
+.container-fluid, .w-screen {
+  display: table;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #2e3831 center center;
+}
+
+#mainContainer {
+  width: 1080px;
+}
+
+.row {
+  height: 100%;
+  display: table-row;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .row .no-float {
+    display: table-cell;
+    float: none;
+  }
+}
+
+.col-md-3 {
+  padding: 0;
+}
+
+.col-md-6 {
+  padding: 0;
+}

@@ -5,20 +5,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <link rel="stylesheet"
         type="text/css"
         href="css/indexStyle.css"/>
+  <link rel="stylesheet"
+        type="text/css"
+        href="css/mainLayoutStyle.css"/>
 </head>
 <body>
-<h1>Algorithm Presenter</h1>
-<form method="get" action="/SortingAlgorithm">
-  <label for="SortingAlgorithmButton">Sorting Algorithms :</label>
-  <button id="SortingAlgorithmButton" type="submit">Continue</button>
-</form>
-<form method="get" action="/greeting">
-  <label for="PathFinderAlgorithmButton">Path finder Algorithms :</label>
-  <button id="PathFinderAlgorithmButton" type="submit">Continue</button>
-</form>
+  <div class="container-fluid" id="mainContainer">
+    <h1 class="IndexText HeaderText">Algorithm Presenter</h1>
 
+    <div class="ContentContainer">
+      <form method="get" action="/SortingAlgorithm">
+        <label for="SortingAlgorithmButton" class="IndexText">
+          Sorting Algorithms :
+        </label>
+        <button id="SortingAlgorithmButton" class="GoToAlgorithmButton" type="submit">
+          Continue
+        </button>
+      </form>
+      <form method="get" action="/greeting">
+        <label for="PathFinderAlgorithmButton" class="IndexText">
+          Path finder Algorithms :
+        </label>
+        <button id="PathFinderAlgorithmButton" class="GoToAlgorithmButton" type="submit">
+          Continue
+        </button>
+      </form>
+    </div>
 
+  </div>
 </body>
 </html>
