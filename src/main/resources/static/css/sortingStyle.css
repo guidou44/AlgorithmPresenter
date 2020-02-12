@@ -54,6 +54,24 @@
   padding: 0;
 }
 
+#CharacterContainer {
+  position: absolute;
+
+  top: 88%;
+  left: 0;
+  transform: translateY(-50%);
+  visibility: hidden;
+  height: 25%;
+  width: 25%;
+
+  z-index: 10;
+  padding: 0;
+}
+
+.CharacterImage {
+  width: 100%;
+  height: auto;
+}
 
 #collection_container {
   width: 100%;
@@ -73,11 +91,13 @@
   margin: 0;
   position: absolute;
   bottom: 0;
+  display: block;
 }
 
-#collection_container div img {
+#collection_container li div img {
   width: 100%;
   margin: 0;
+  vertical-align: bottom;
 }
 
 /*-----------------Left Panel/Right Panel-------------------------*/
@@ -223,6 +243,7 @@
   margin-left: 5px;
   display: inline;
 }
+
 
 .RandomMarioBlockButton:hover {
   filter: invert(100%);

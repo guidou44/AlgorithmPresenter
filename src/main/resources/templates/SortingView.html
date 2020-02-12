@@ -34,7 +34,7 @@
           <div class="SidePanelSubContainer">
             <div class="SidePanelSubSubContainer">
 
-              <div class="SideContainerFlexLeft AlignRightContainer">
+              <div class="SideContainerFlexLeft AlignLeftContainer">
                 <div class="SideContentContainer LeftContentContainer">
                   <label for="CollectionLength"
                          class="SidePanelText SidePanelAutoWidthText">
@@ -45,7 +45,7 @@
                          value="10"
                          onchange="getNewCollection()">
                 </div>
-                <div class="AlignRightContainer TableButtonContainer">
+                <div class="AlignLeftContainer TableButtonContainer">
                   <div class="ButtonWrapper">
                     <button onclick="incrementCollectionSize()">+</button>
                     <button onclick="decrementCollectionSize()">-</button>
@@ -59,7 +59,7 @@
           <div class="SidePanelSubContainer">
             <div class="SidePanelSubSubContainer">
 
-              <div class="SideContainerFlexLeft AlignRightContainer">
+              <div class="SideContainerFlexLeft AlignLeftContainer">
                 <div>
                   <label class="SidePanelText InlineBlockElement"
                          for="RefreshCollectionButton">Randomize list :</label>
@@ -80,7 +80,7 @@
           <div class="SidePanelSubContainer">
             <div class="SidePanelSubSubContainer">
 
-              <div class="SideContainerFlexLeft AlignRightContainer">
+              <div class="SideContainerFlexLeft AlignLeftContainer">
                 <div>
                   <label class="SidePanelText InlineBlockElement"
                          for="AlgorithmSources">Algorithm :</label>
@@ -93,6 +93,23 @@
                     <option value="Select">Select</option>
                     <option value="Merge">Merge</option>
                   </select>
+                </div>
+
+              </div>
+
+              <div class="SideContainerFlexLeft AlignRightContainer">
+                <div>
+                  <label class="SidePanelText InlineBlockElement"
+                         for="StartSortingAlgorithm">Start Sorting ! :</label>
+                </div>
+
+                <div class="InlineButtonContainer">
+                  <input id="StartSortingAlgorithm"
+                         type="image"
+                         src="images/marioWalking.gif"
+                         alt="RANDOM"
+                         onclick="displayCharacterKoopaMagician(1300)"
+                         class="RandomMarioBlockButton"/>
                 </div>
 
               </div>
@@ -111,6 +128,10 @@
             <h1 id="Title" class="text-nowrap">Sorting Algorithm</h1>
           </div>
           <img src="images/marioBackGround.png" id="bckImg" alt="Mario_world"/>
+          <div id="CharacterContainer">
+            <img src="images/koopaMagicianRight.gif"
+            alt="notFound" class="CharacterImage">
+          </div>
           <div id="algorithm_container">
             <ul id="collection_container">
             </ul>
