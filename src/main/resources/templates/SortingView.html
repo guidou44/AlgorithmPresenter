@@ -16,6 +16,10 @@
   <link rel="stylesheet"
         type="text/css"
         href="css/mainLayoutStyle.css"/>
+  <link rel="stylesheet"
+        type="text/css"
+        href="css/CustomSelectMenuStyle.css"/>
+
   <script type="text/javascript" src="js/CollectionManager.js"></script>
 </head>
 
@@ -30,7 +34,7 @@
           <div class="SidePanelSubContainer">
             <div class="SidePanelSubSubContainer">
 
-              <div class="SideContainerFlexLeft">
+              <div class="SideContainerFlexLeft AlignRightContainer">
                 <div class="SideContentContainer LeftContentContainer">
                   <label for="CollectionLength"
                          class="SidePanelText SidePanelAutoWidthText">
@@ -55,7 +59,7 @@
           <div class="SidePanelSubContainer">
             <div class="SidePanelSubSubContainer">
 
-              <div class="SideContainerFlexLeft AlignRightContainer ">
+              <div class="SideContainerFlexLeft AlignRightContainer">
                 <div>
                   <label class="SidePanelText InlineBlockElement"
                          for="RefreshCollectionButton">Randomize list :</label>
@@ -76,19 +80,21 @@
           <div class="SidePanelSubContainer">
             <div class="SidePanelSubSubContainer">
 
-              <div class="SideContainerFlexLeft AlignRightContainer ">
+              <div class="SideContainerFlexLeft AlignRightContainer">
                 <div>
                   <label class="SidePanelText InlineBlockElement"
-                         for="RefreshCollectionButton">Randomize list :</label>
+                         for="AlgorithmSources">Algorithm :</label>
                 </div>
-                <div class="InlineButtonContainer">
-                  <input id="AlgorithmInput"
-                         type="image"
-                         src="images/marioRandomBlock.png"
-                         alt="RANDOM"
-                         onclick="getNewCollection()"
-                         class="RandomMarioBlockButton"/>
+
+                <div class="select-style">
+                  <select id="AlgorithmSources">
+                    <option value="Bubble">Bubble</option>
+                    <option value="Insert">Insert</option>
+                    <option value="Select">Select</option>
+                    <option value="Merge">Merge</option>
+                  </select>
                 </div>
+
               </div>
 
             </div>

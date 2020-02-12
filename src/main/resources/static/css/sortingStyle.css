@@ -32,6 +32,7 @@
 
 #Title {
   color: black;
+  text-shadow: -2px 0 #6B8CFF, 0 2px #6B8CFF, 2px 0 #6B8CFF, 0 -2px #6B8CFF;
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
   font-weight: bold;

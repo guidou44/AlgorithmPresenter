@@ -1,0 +1,25 @@
+.select-style {
+  border: 2px solid wheat;
+  border-radius: 4px;
+  width: 50%;
+  overflow: hidden;
+  background: transparent;
+  margin-left: 5px;
+}
+
+.select-style select {
+  padding: 5px 8px;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  background: black;
+  text-align: center;
+  font-family: "Lucida Console", Times, serif;
+  font-style: normal;
+  font-weight: bold;
+  color: wheat;
+}
+
+.select-style select:focus {
+  outline: none;
+}
