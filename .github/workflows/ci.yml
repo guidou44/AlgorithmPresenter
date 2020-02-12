@@ -41,15 +41,15 @@ jobs:
         run: mvn package -DskipTests
 
       - name: Tests
-        run: mvn test && mvn jacoco:report
+        run: mvn test
         
-  Code_coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: codecov/codecov-action@v1
+      - name: Generate_Code_Coverage_report
+        run: mvn jacoco:report
+        
+      - name: Upload_To_CodeCov
+        uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           yml: ./codecov.yml
-      - name: Code Coverage
-        run: mvn jacoco:report
+
 
