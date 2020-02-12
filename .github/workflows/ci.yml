@@ -8,7 +8,7 @@ on:
       - master
 
 jobs:
-    lint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
       - name: Check Coding Style
         run: mvn checkstyle:check
 
-    build_and_test:
+  build_and_test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs:
       - name: Tests
         run: mvn test && mvn jacoco:report
         
-    Code_coverage:
+  Code_coverage:
     runs-on: ubuntu-latest
     steps:
       - uses: codecov/codecov-action@v1
