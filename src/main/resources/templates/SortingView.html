@@ -21,6 +21,9 @@
         href="css/CustomSelectMenuStyle.css"/>
 
   <script type="text/javascript" src="js/CollectionManager.js"></script>
+  <script type="text/javascript" src="js/IncrementDecrementPanelManager.js"></script>
+  <script type="text/javascript" src="js/CharacterAnimationManager.js"></script>
+  <script type="text/javascript" src="js/HttpClient.js"></script>
 </head>
 
 <body id="body" onload="getNewCollection()">
@@ -47,8 +50,8 @@
                 </div>
                 <div class="AlignLeftContainer TableButtonContainer">
                   <div class="ButtonWrapper">
-                    <button onclick="incrementCollectionSize()">+</button>
-                    <button onclick="decrementCollectionSize()">-</button>
+                    <button id="incrementButton" onclick="incrementCollectionSize()">+</button>
+                    <button id="decrementButton" onclick="decrementCollectionSize()">-</button>
                   </div>
                 </div>
               </div>

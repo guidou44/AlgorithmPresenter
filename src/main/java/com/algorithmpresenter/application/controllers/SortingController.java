@@ -28,9 +28,8 @@ public class SortingController extends ControllerBase {
   @ResponseBody
   public List<Integer> setSortingCollectionParameters(
       @RequestBody CollectionParameterDto collectionParameterDto) {
-    List<Integer> newCollection = collectionService
+    return collectionService
         .getNewRandomMainCollection(collectionParameterDto.getCollectionDimension());
-    return newCollection;
   }
 
 }

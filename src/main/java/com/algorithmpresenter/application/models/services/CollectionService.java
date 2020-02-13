@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 public class CollectionService {
 
   private List<Integer> mainCollection;
-  private final int defaultCollectionMax = 38;
 
   //region public Methods
 
@@ -30,9 +29,10 @@ public class CollectionService {
   private void generateNewRandomList(int desiredLength) {
     mainCollection = new ArrayList<Integer>();
     Random random = new Random();
+    int defaultCollectionMax = 100;
     int collectionMax = Math.min(desiredLength, defaultCollectionMax);
 
-    for (int i = 0; i < desiredLength; i++) {
+    for (int i = 0; i < collectionMax; i++) {
       int randomNumber = random.nextInt(collectionMax + 1);
       mainCollection.add(randomNumber);
     }

@@ -1,36 +1,48 @@
+
+
 function getNewCollection() {
+  var collectionLength = getDesiredCollectionLengthAdjusted();
+  disableIncrementalButtonIfNeeded(collectionLength);
 
-  var collectionLength = parseInt(
-      document.getElementById("CollectionLength").value, 10);
-  if (collectionLength >= 3) {
-    console.log(collectionLength);
-    const Url = "/SortingAlgorithm/CollectionParameters";
-    const data = {
-      collectionDimension: collectionLength,
-      sortingMethod: "TEST"
-    };
+  const url = "/SortingAlgorithm/CollectionParameters";
+  const data = {
+    collectionDimension: collectionLength,
+    sortingMethod: "TEST"
+  };
 
-    $.ajax({
-      url: Url,
-      type: "POST",
-      data: JSON.stringify(data),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function (responseData) {
-        generateArrayFromResponse(responseData);
-      }
-    });
-  }
-
-  console.log(document.getElementById("mainContainer").offsetWidth);
+  sendPostRequest(url, data,   function (responseData) {
+    generateArrayFromResponse(responseData);
+  })
 }
 
-function generateFixedArray() {
-  var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  var elementWidthPercent = Math.round((100 / list.length) - 0.5);
-  var mainUl = document.getElementById("collection_container");
+function getDesiredCollectionLengthAdjusted() {
+  var inputBox = document.getElementById("CollectionLength");
+  var collectionLength = parseInt(inputBox.value, 10);
+  if (collectionLength < 3) {
+    inputBox.value = 3;
+    collectionLength = 3;
+  } else if (collectionLength > 100) {
+    inputBox.value = 100;
+    collectionLength = 100;
+  }
 
-  generateArray(list, elementWidthPercent, mainUl);
+  return collectionLength;
+}
+
+function disableIncrementalButtonIfNeeded(collectionLength) {
+  var incrementButton = document.getElementById("incrementButton");
+  var decrementButton = document.getElementById("decrementButton");
+
+  if (collectionLength === 100) {
+    decrementButton.disabled = false;
+    incrementButton.disabled = true;
+  } else if (collectionLength === 3) {
+    decrementButton.disabled = true;
+    incrementButton.disabled = false;
+  } else {
+    decrementButton.disabled = false;
+    incrementButton.disabled = false;
+  }
 }
 
 function generateArrayFromResponse(list) {
@@ -61,30 +73,3 @@ function generateArray(list, elementWidthPercent, mainUl) {
   }
 }
 
-function decrementCollectionSize() {
-  var sizeInput = document.getElementById("CollectionLength");
-  if (sizeInput.value > 3) {
-    sizeInput.value = parseInt(sizeInput.value, 10) - 1;
-    getNewCollection();
-  }
-}
-
-function incrementCollectionSize() {
-  var sizeInput = document.getElementById("CollectionLength");
-  sizeInput.value = parseInt(sizeInput.value, 10) + 1;
-  getNewCollection();
-}
-
-function displayCharacterKoopaMagician(ms) {
-  var divContainingCharacter = document.getElementById("CharacterContainer");
-  console.log("setting visibility visible");
-  divContainingCharacter.style.visibility = "visible";
-  sleep(ms).then(() => {
-    divContainingCharacter.style.visibility = "hidden";
-    console.log("setting visibility hidden");
-  });
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}

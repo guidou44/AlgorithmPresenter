@@ -91,13 +91,14 @@
   margin: 0;
   position: absolute;
   bottom: 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 #collection_container li div img {
   width: 100%;
   margin: 0;
-  vertical-align: bottom;
 }
 
 /*-----------------Left Panel/Right Panel-------------------------*/
@@ -196,7 +197,7 @@
 }
 
 .SidePanelInputText {
-  width: 15%;
+  width: 25%;
   background: transparent;
   border: 2px solid #1a1818;
   padding: 2px;
@@ -230,12 +231,21 @@
   font-style: normal;
   font-weight: bold;
   background-color: black;
+  border: 2px solid wheat;
   border-radius: 20%;
   color: wheat;
 }
 
 .ButtonWrapper button:hover {
-  background-color: #007376;
+  background-color: #3e4182;
+  border-color: #4a82aa;
+  color: #4a82aa;
+}
+
+.ButtonWrapper button:disabled {
+  background-color: #D4D4D4;
+  color: rgba(100, 92, 84, 0.98);
+  border-color: rgba(100, 92, 84, 0.98);
 }
 
 .RandomMarioBlockButton {
