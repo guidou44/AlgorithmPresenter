@@ -1,6 +1,6 @@
 package com.algorithmpresenter.application.controllers;
 
-import com.algorithmpresenter.application.models.dtos.CollectionParameterDto;
+import com.algorithmpresenter.application.models.dtos.CollectionDto;
 import com.algorithmpresenter.application.models.services.CollectionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,21 +15,24 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 public class SortingController extends ControllerBase {
 
-  @Autowired
   private CollectionService collectionService;
+
+  @Autowired
+  public SortingController(CollectionService service) {
+    collectionService = service;
+  }
 
   @GetMapping("/SortingAlgorithm")
   public String getSortingView() {
     return getMainViewName();
   }
 
-  @PostMapping(path = "/SortingAlgorithm/CollectionParameters", consumes = "application/json")
+  @PostMapping(path = "/SortingAlgorithm/SetNewCollection", consumes = "application/json")
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
-  public List<Integer> setSortingCollectionParameters(
-      @RequestBody CollectionParameterDto collectionParameterDto) {
+  public CollectionDto setNewMainCollectionAndReturnIt(
+      @RequestBody CollectionDto collectionDto) {
     return collectionService
-        .getNewRandomMainCollection(collectionParameterDto.getCollectionDimension());
+        .getNewRandomMainCollection(collectionDto.getCollectionDimension());
   }
-
 }

@@ -1,25 +1,28 @@
 package com.algorithmpresenter.application.models.services;
 
+import com.algorithmpresenter.application.models.dtos.CollectionDto;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class CollectionService {
 
-  private List<Integer> mainCollection;
+  private CollectionDto mainCollectionContainer;
+
+  @Autowired
+  public CollectionService(CollectionDto collectionDto) {
+    mainCollectionContainer = collectionDto;
+  }
 
   //region public Methods
 
-  public List<Integer> getMainCollection() {
-    return mainCollection;
-  }
-
-  public List<Integer> getNewRandomMainCollection(int desiredLength) {
+  public CollectionDto getNewRandomMainCollection(int desiredLength) {
     generateNewRandomList(desiredLength);
-    return mainCollection;
+    return mainCollectionContainer;
   }
 
   //endregion
@@ -27,7 +30,7 @@ public class CollectionService {
   //region private Methods
 
   private void generateNewRandomList(int desiredLength) {
-    mainCollection = new ArrayList<Integer>();
+    List<Integer> mainCollection = new ArrayList<Integer>();
     Random random = new Random();
     int defaultCollectionMax = 100;
     int collectionMax = Math.min(desiredLength, defaultCollectionMax);
@@ -36,6 +39,21 @@ public class CollectionService {
       int randomNumber = random.nextInt(collectionMax + 1);
       mainCollection.add(randomNumber);
     }
+
+    mainCollectionContainer.setCollectionDimension(mainCollection.size());
+    mainCollectionContainer.setMainCollection(mainCollection);
+  }
+
+  //endregion
+
+  //region getters and setters
+
+  public CollectionDto getMainCollectionContainer() {
+    return mainCollectionContainer;
+  }
+
+  public void setMainCollectionContainer(CollectionDto collectionContainer) {
+    mainCollectionContainer = collectionContainer;
   }
 
   //endregion

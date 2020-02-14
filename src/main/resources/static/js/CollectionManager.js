@@ -4,14 +4,13 @@ function getNewCollection() {
   var collectionLength = getDesiredCollectionLengthAdjusted();
   disableIncrementalButtonIfNeeded(collectionLength);
 
-  const url = "/SortingAlgorithm/CollectionParameters";
+  const url = "/SortingAlgorithm/SetNewCollection";
   const data = {
     collectionDimension: collectionLength,
-    sortingMethod: "TEST"
   };
 
   sendPostRequest(url, data,   function (responseData) {
-    generateArrayFromResponse(responseData);
+    generateArrayFromResponse(responseData['mainCollection']);
   })
 }
 
