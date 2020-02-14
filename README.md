@@ -5,7 +5,7 @@
 web app to test and display common algorithms
 
 ## Deployment
-master deploys on heroku eith CD pipeline. [https://algorithm-presenter.herokuapp.com/](https://algorithm-presenter.herokuapp.com/)
+master deploys on heroku with CD pipeline. [https://algorithm-presenter.herokuapp.com/](https://algorithm-presenter.herokuapp.com/)
 
 ## License
 see [MIT License](LICENSE.md)

@@ -28,7 +28,7 @@ public class SortingController extends ControllerBase {
   }
 
   @PostMapping(path = "/SortingAlgorithm/SetNewCollection", consumes = "application/json")
-  @ResponseStatus(HttpStatus.OK)
+  @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
   public CollectionDto setNewMainCollectionAndReturnIt(
       @RequestBody CollectionDto collectionDto) {

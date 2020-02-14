@@ -10,6 +10,7 @@
   font-family: "Lucida Console", Times, serif;
   font-style: normal;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .ContentContainer form {
@@ -31,8 +32,13 @@
   font-size: 22px;
   margin: 4px 2px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .GoToAlgorithmButton:hover {
   background-color: #7bf542;
+}
+
+.IndexForm {
+  white-space: nowrap;
 }
