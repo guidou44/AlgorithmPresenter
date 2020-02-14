@@ -1,6 +1,7 @@
 package com.algorithmpresenter.application.controllertests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -8,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.algorithmpresenter.application.controllers.SortingController;
 import com.algorithmpresenter.application.models.dtos.CollectionDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Random;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,30 +41,55 @@ public class SortingControllerTests {
   @Test
   public void whenSendingNewCollectionParameters_thenItReturnsCollectionWithProperLength()
       throws Exception {
-    final int desiredCollectionLength = 10;
-    CollectionDto collectionDto = new CollectionDto();
-    collectionDto.setCollectionDimension(desiredCollectionLength);
+    CollectionDto collectionDtoToSend = getRandomCollectionDtoForPost();
 
-    MvcResult result = getMvcResultFromNewCollectionPost(collectionDto);
+    CollectionDto collectionDtoReceived =
+        getCollectionResultFromNewCollectionPost(collectionDtoToSend);
 
-    String responseContent = result.getResponse().getContentAsString();
-    assertEquals(desiredCollectionLength,
-        objectMapper.readValue(responseContent, CollectionDto.class).getMainCollection().size());
+    assertEquals(
+        collectionDtoToSend.getCollectionDimension(),
+        collectionDtoReceived.getMainCollection().size());
+  }
+
+  @Test
+  public void whenSendingConsecutiveCollectionParameters_thenItReturnsNewCollection()
+      throws Exception {
+    CollectionDto collectionDtoToSend = getRandomCollectionDtoForPost();
+    CollectionDto firstCollectionDtoReceived =
+        getCollectionResultFromNewCollectionPost(collectionDtoToSend);
+    CollectionDto secondCollectionDtoReceived =
+        getCollectionResultFromNewCollectionPost(collectionDtoToSend);
+
+    assertNotEquals(
+        firstCollectionDtoReceived.getMainCollection(),
+        secondCollectionDtoReceived.getMainCollection());
   }
 
   // region private methods
 
-  private MvcResult getMvcResultFromNewCollectionPost(CollectionDto collectionDto)
+  private CollectionDto getCollectionResultFromNewCollectionPost(CollectionDto collectionDtoToSend)
       throws Exception {
-    return mockMvc
-        .perform(
-            MockMvcRequestBuilders.post("/SortingAlgorithm/SetNewCollection")
-                .content(objectMapper.writeValueAsString(collectionDto))
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isCreated())
-        .andExpect(MockMvcResultMatchers.jsonPath("$.mainCollection").exists())
-        .andReturn();
+    MvcResult result =
+        mockMvc
+            .perform(
+                MockMvcRequestBuilders.post("/SortingAlgorithm/SetNewCollection")
+                    .content(objectMapper.writeValueAsString(collectionDtoToSend))
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isCreated())
+            .andExpect(MockMvcResultMatchers.jsonPath("$.mainCollection").exists())
+            .andReturn();
+    String responseContent = result.getResponse().getContentAsString();
+    return objectMapper.readValue(responseContent, CollectionDto.class);
+  }
+
+  private CollectionDto getRandomCollectionDtoForPost() {
+    Random random = new Random();
+    final int desiredCollectionLength = random.nextInt(98) + 3;
+    CollectionDto collectionDtoToSend = new CollectionDto();
+    collectionDtoToSend.setCollectionDimension(desiredCollectionLength);
+
+    return collectionDtoToSend;
   }
 
   // endregion
