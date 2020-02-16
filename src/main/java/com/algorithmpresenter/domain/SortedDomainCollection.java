@@ -1,8 +1,6 @@
-package com.algorithmpresenter.application.models.dtos;
+package com.algorithmpresenter.domain;
 
-import java.util.List;
-
-public class SortedCollectionDto extends CollectionDto {
+public class SortedDomainCollection extends DomainCollection {
 
   private int currentSortingIndex;
   private boolean isSortingDone;

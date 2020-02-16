@@ -1,4 +1,4 @@
-package com.algorithmpresenter.application.controllertests;
+package com.algorithmpresenter.controllertests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -6,8 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import com.algorithmpresenter.application.controllers.SortingController;
-import com.algorithmpresenter.application.models.dtos.CollectionDto;
+import com.algorithmpresenter.controllers.SortingController;
+import com.algorithmpresenter.domain.DomainCollection;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = SortingController.class)
-@ComponentScan({"com.algorithmpresenter.application"})
+@ComponentScan({"com.algorithmpresenter"})
 public class SortingControllerTests {
 
   @Autowired private MockMvc mockMvc;
@@ -41,55 +41,55 @@ public class SortingControllerTests {
   @Test
   public void whenSendingNewCollectionParameters_thenItReturnsCollectionWithProperLength()
       throws Exception {
-    CollectionDto collectionDtoToSend = getRandomCollectionDtoForPost();
+    DomainCollection domainCollectionToSend = getRandomCollectionDtoForPost();
 
-    CollectionDto collectionDtoReceived =
-        getCollectionResultFromNewCollectionPost(collectionDtoToSend);
+    DomainCollection domainCollectionReceived =
+        getCollectionResultFromNewCollectionPost(domainCollectionToSend);
 
     assertEquals(
-        collectionDtoToSend.getCollectionDimension(),
-        collectionDtoReceived.getMainCollection().size());
+        domainCollectionToSend.getCollectionDimension(),
+        domainCollectionReceived.getMainCollection().size());
   }
 
   @Test
   public void whenSendingConsecutiveCollectionParameters_thenItReturnsNewCollection()
       throws Exception {
-    CollectionDto collectionDtoToSend = getRandomCollectionDtoForPost();
-    CollectionDto firstCollectionDtoReceived =
-        getCollectionResultFromNewCollectionPost(collectionDtoToSend);
-    CollectionDto secondCollectionDtoReceived =
-        getCollectionResultFromNewCollectionPost(collectionDtoToSend);
+    DomainCollection domainCollectionToSend = getRandomCollectionDtoForPost();
+    DomainCollection firstDomainCollectionReceived =
+        getCollectionResultFromNewCollectionPost(domainCollectionToSend);
+    DomainCollection secondDomainCollectionReceived =
+        getCollectionResultFromNewCollectionPost(domainCollectionToSend);
 
     assertNotEquals(
-        firstCollectionDtoReceived.getMainCollection(),
-        secondCollectionDtoReceived.getMainCollection());
+        firstDomainCollectionReceived.getMainCollection(),
+        secondDomainCollectionReceived.getMainCollection());
   }
 
   // region private methods
 
-  private CollectionDto getCollectionResultFromNewCollectionPost(CollectionDto collectionDtoToSend)
-      throws Exception {
+  private DomainCollection getCollectionResultFromNewCollectionPost(
+      DomainCollection domainCollectionToSend) throws Exception {
     MvcResult result =
         mockMvc
             .perform(
                 MockMvcRequestBuilders.post("/SortingAlgorithm/SetNewCollection")
-                    .content(objectMapper.writeValueAsString(collectionDtoToSend))
+                    .content(objectMapper.writeValueAsString(domainCollectionToSend))
                     .contentType(MediaType.APPLICATION_JSON)
                     .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isCreated())
             .andExpect(MockMvcResultMatchers.jsonPath("$.mainCollection").exists())
             .andReturn();
     String responseContent = result.getResponse().getContentAsString();
-    return objectMapper.readValue(responseContent, CollectionDto.class);
+    return objectMapper.readValue(responseContent, DomainCollection.class);
   }
 
-  private CollectionDto getRandomCollectionDtoForPost() {
+  private DomainCollection getRandomCollectionDtoForPost() {
     Random random = new Random();
     final int desiredCollectionLength = random.nextInt(98) + 3;
-    CollectionDto collectionDtoToSend = new CollectionDto();
-    collectionDtoToSend.setCollectionDimension(desiredCollectionLength);
+    DomainCollection domainCollectionToSend = new DomainCollection();
+    domainCollectionToSend.setCollectionDimension(desiredCollectionLength);
 
-    return collectionDtoToSend;
+    return domainCollectionToSend;
   }
 
   // endregion

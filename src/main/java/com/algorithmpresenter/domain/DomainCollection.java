@@ -1,10 +1,10 @@
-package com.algorithmpresenter.application.models.dtos;
+package com.algorithmpresenter.domain;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CollectionDto {
+public class DomainCollection {
 
   private int collectionDimension;
   private List<Integer> mainCollection;
