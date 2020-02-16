@@ -2,7 +2,7 @@ package com.algorithmpresenter.controllers;
 
 import com.algorithmpresenter.assembler.CollectionAssembler;
 import com.algorithmpresenter.domain.DomainCollection;
-import com.algorithmpresenter.dtos.DomainCollectionDto;
+import com.algorithmpresenter.dtos.CollectionDto;
 import com.algorithmpresenter.services.CollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,10 +33,10 @@ public class SortingController extends ControllerBase {
   @PostMapping(path = "/SortingAlgorithm/SetNewCollection", consumes = "application/json")
   @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
-  public DomainCollectionDto setNewMainCollectionAndReturnIt(
-      @RequestBody DomainCollectionDto domainCollectionDto) throws Exception {
+  public CollectionDto setNewMainCollectionAndReturnIt(
+      @RequestBody CollectionDto collectionDto) throws Exception {
     DomainCollection domainCollection =
-        collectionService.getNewRandomMainCollection(domainCollectionDto.getCollectionDimension());
+        collectionService.getNewRandomMainCollection(collectionDto.getCollectionDimension());
     return collectionAssembler.assembleResponse(domainCollection);
   }
 }

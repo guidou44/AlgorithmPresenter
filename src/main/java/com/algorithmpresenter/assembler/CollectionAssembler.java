@@ -1,35 +1,24 @@
 package com.algorithmpresenter.assembler;
 
 import com.algorithmpresenter.domain.DomainCollection;
-import com.algorithmpresenter.dtos.DomainCollectionDto;
-import com.algorithmpresenter.factories.IFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.algorithmpresenter.dtos.CollectionDto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CollectionAssembler {
 
-  private IFactory simpleFactory;
+  public CollectionDto assembleResponse(DomainCollection domainCollection) {
+    CollectionDto collectionDto = new CollectionDto();
+    collectionDto.setCollectionDimension(domainCollection.getCollectionDimension());
+    collectionDto.setMainCollection(domainCollection.getMainCollection());
 
-  @Autowired
-  public CollectionAssembler(IFactory simpleFactory) {
-    this.simpleFactory = simpleFactory;
+    return collectionDto;
   }
 
-  public DomainCollectionDto assembleResponse(DomainCollection domainCollection) throws Exception {
-    DomainCollectionDto domainCollectionDto =
-        simpleFactory.getDirectInstance(DomainCollectionDto.class);
-    domainCollectionDto.setCollectionDimension(domainCollection.getCollectionDimension());
-    domainCollectionDto.setMainCollection(domainCollection.getMainCollection());
-
-    return domainCollectionDto;
-  }
-
-  public DomainCollection assembleRequest(DomainCollectionDto domainCollectionDto)
-      throws Exception {
-    DomainCollection domainCollection = simpleFactory.getDirectInstance(DomainCollection.class);
-    domainCollection.setCollectionDimension(domainCollectionDto.getCollectionDimension());
-    domainCollection.setMainCollection(domainCollectionDto.getMainCollection());
+  public DomainCollection assembleRequest(CollectionDto collectionDto) {
+    DomainCollection domainCollection = new DomainCollection();
+    domainCollection.setCollectionDimension(collectionDto.getCollectionDimension());
+    domainCollection.setMainCollection(collectionDto.getMainCollection());
 
     return domainCollection;
   }

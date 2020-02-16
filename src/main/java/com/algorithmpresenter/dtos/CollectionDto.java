@@ -2,7 +2,7 @@ package com.algorithmpresenter.dtos;
 
 import java.util.List;
 
-public class DomainCollectionDto {
+public class CollectionDto {
 
   private int collectionDimension;
   private List<Integer> mainCollection;
