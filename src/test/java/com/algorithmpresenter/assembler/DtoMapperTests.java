@@ -20,7 +20,7 @@ public class DtoMapperTests {
     CollectionDto dto = new CollectionDto();
     dto.setMainCollection(new ArrayList<>(Arrays.asList(1, 2, 2, 3)));
     dto.setCollectionDimension(dto.getMainCollection().size());
-    assertNotNull(mapperSubject.mapFromDtoToDomain(dto));
+    assertNotNull(mapperSubject.map(dto, DomainCollection.class));
   }
 
   @Test
@@ -28,6 +28,6 @@ public class DtoMapperTests {
     DomainCollection domainCollection = new DomainCollection();
     domainCollection.setMainCollection(new ArrayList<>(Arrays.asList(1, 2, 2, 3)));
     domainCollection.setCollectionDimension(domainCollection.getMainCollection().size());
-    assertNotNull(mapperSubject.mapFromDomainToDto(domainCollection));
+    assertNotNull(mapperSubject.map(domainCollection, CollectionDto.class));
   }
 }

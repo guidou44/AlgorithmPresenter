@@ -37,6 +37,6 @@ public class SortingController extends ControllerBase {
       throws Exception {
     DomainCollection domainCollection =
         collectionService.getNewRandomMainCollection(collectionDto.getCollectionDimension());
-    return dtoMapper.mapFromDomainToDto(domainCollection);
+    return dtoMapper.map(domainCollection, CollectionDto.class);
   }
 }
