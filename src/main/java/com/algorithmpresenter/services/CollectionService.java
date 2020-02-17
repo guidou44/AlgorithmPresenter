@@ -1,6 +1,7 @@
 package com.algorithmpresenter.services;
 
-import com.algorithmpresenter.domain.DomainCollection;
+import com.algorithmpresenter.buisness.sorting.CollectionContainer;
+import com.algorithmpresenter.repositories.sorting.ICollectionRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,25 +11,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class CollectionService {
 
-  private DomainCollection mainDomainCollectionContainer;
+  private CollectionContainer collectionContainer;
+  private ICollectionRepository collectionRepository;
 
   @Autowired
-  public CollectionService(DomainCollection domainCollection) {
-    mainDomainCollectionContainer = domainCollection;
+  public CollectionService(CollectionContainer container, ICollectionRepository repository) {
+    collectionContainer = container;
+    collectionRepository = repository;
   }
 
-  // region public Methods
-
-  public DomainCollection getNewRandomMainCollection(int desiredLength) {
-    generateNewRandomList(desiredLength);
-    return mainDomainCollectionContainer;
+  public void setNewRandomMainCollection(int desiredLength) {
+    List<Integer> newCollection = generateNewRandomList(desiredLength);
+    updateRepository(newCollection);
+    setContainerUpToDateWithRepository();
   }
 
-  // endregion
+  public CollectionContainer getCollectionContainer() {
+    return collectionContainer;
+  }
 
-  // region private Methods
-
-  private void generateNewRandomList(int desiredLength) {
+  private List<Integer> generateNewRandomList(int desiredLength) {
     List<Integer> mainCollection = new ArrayList<Integer>();
     Random random = new Random();
     int defaultCollectionMax = 100;
@@ -39,21 +41,15 @@ public class CollectionService {
       mainCollection.add(randomNumber);
     }
 
-    mainDomainCollectionContainer.setCollectionDimension(mainCollection.size());
-    mainDomainCollectionContainer.setMainCollection(mainCollection);
+    return mainCollection;
   }
 
-  // endregion
-
-  // region getters and setters
-
-  public DomainCollection getMainDomainCollectionContainer() {
-    return mainDomainCollectionContainer;
+  private void updateRepository(List<Integer> mainCollection) {
+    collectionRepository.updateMainCollection(mainCollection);
   }
 
-  public void setMainDomainCollectionContainer(DomainCollection domainCollectionContainer) {
-    mainDomainCollectionContainer = domainCollectionContainer;
+  private void setContainerUpToDateWithRepository() {
+    collectionContainer.setCollectionDimension(collectionRepository.getMainCollection().size());
+    collectionContainer.setMainCollection(collectionRepository.getMainCollection());
   }
-
-  // endregion
 }

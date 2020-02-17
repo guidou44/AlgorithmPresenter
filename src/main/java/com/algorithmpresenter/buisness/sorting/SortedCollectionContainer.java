@@ -1,6 +1,6 @@
-package com.algorithmpresenter.domain;
+package com.algorithmpresenter.buisness.sorting;
 
-public class SortedDomainCollection extends DomainCollection {
+public class SortedCollectionContainer extends CollectionContainer {
 
   private int currentSortingIndex;
   private boolean isSortingDone;

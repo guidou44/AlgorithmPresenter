@@ -1,10 +1,10 @@
-package com.algorithmpresenter.domain;
+package com.algorithmpresenter.buisness.sorting;
 
 import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DomainCollection {
+public class CollectionContainer {
 
   private int collectionDimension;
   private List<Integer> mainCollection;

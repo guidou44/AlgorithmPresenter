@@ -6,8 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+import com.algorithmpresenter.buisness.sorting.CollectionContainer;
 import com.algorithmpresenter.controllers.SortingController;
-import com.algorithmpresenter.domain.DomainCollection;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
@@ -41,23 +41,23 @@ public class SortingControllerTests {
   @Test
   public void whenSendingNewCollectionParameters_thenItReturnsCollectionWithProperLength()
       throws Exception {
-    DomainCollection domainCollectionToSend = getRandomCollectionDtoForPost();
+    CollectionContainer collectionContainerToSend = getRandomCollectionDtoForPost();
 
-    DomainCollection domainCollectionReceived =
-        getCollectionResultFromNewCollectionPost(domainCollectionToSend);
+    CollectionContainer collectionContainerReceived =
+        getCollectionResultFromNewCollectionPost(collectionContainerToSend);
 
     assertEquals(
-        domainCollectionToSend.getCollectionDimension(),
-        domainCollectionReceived.getMainCollection().size());
+        collectionContainerToSend.getCollectionDimension(),
+        collectionContainerReceived.getMainCollection().size());
   }
 
   @Test
   public void whenSendingConsecutiveCollectionParameters_thenItReturnsNewCollection()
       throws Exception {
-    DomainCollection domainCollectionToSend = getRandomCollectionDtoForPost();
-    DomainCollection firstDomainCollectionReceived =
+    CollectionContainer domainCollectionToSend = getRandomCollectionDtoForPost();
+    CollectionContainer firstDomainCollectionReceived =
         getCollectionResultFromNewCollectionPost(domainCollectionToSend);
-    DomainCollection secondDomainCollectionReceived =
+    CollectionContainer secondDomainCollectionReceived =
         getCollectionResultFromNewCollectionPost(domainCollectionToSend);
 
     assertNotEquals(
@@ -67,8 +67,8 @@ public class SortingControllerTests {
 
   // region private methods
 
-  private DomainCollection getCollectionResultFromNewCollectionPost(
-      DomainCollection domainCollectionToSend) throws Exception {
+  private CollectionContainer getCollectionResultFromNewCollectionPost(
+      CollectionContainer domainCollectionToSend) throws Exception {
     MvcResult result =
         mockMvc
             .perform(
@@ -80,13 +80,13 @@ public class SortingControllerTests {
             .andExpect(MockMvcResultMatchers.jsonPath("$.mainCollection").exists())
             .andReturn();
     String responseContent = result.getResponse().getContentAsString();
-    return objectMapper.readValue(responseContent, DomainCollection.class);
+    return objectMapper.readValue(responseContent, CollectionContainer.class);
   }
 
-  private DomainCollection getRandomCollectionDtoForPost() {
+  private CollectionContainer getRandomCollectionDtoForPost() {
     Random random = new Random();
     final int desiredCollectionLength = random.nextInt(98) + 3;
-    DomainCollection domainCollectionToSend = new DomainCollection();
+    CollectionContainer domainCollectionToSend = new CollectionContainer();
     domainCollectionToSend.setCollectionDimension(desiredCollectionLength);
 
     return domainCollectionToSend;

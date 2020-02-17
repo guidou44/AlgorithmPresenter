@@ -1,7 +1,7 @@
 package com.algorithmpresenter.controllers;
 
 import com.algorithmpresenter.assembler.DtoMapper;
-import com.algorithmpresenter.domain.DomainCollection;
+import com.algorithmpresenter.buisness.sorting.CollectionContainer;
 import com.algorithmpresenter.dtos.CollectionDto;
 import com.algorithmpresenter.services.CollectionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +35,8 @@ public class SortingController extends ControllerBase {
   @ResponseBody
   public CollectionDto setNewMainCollectionAndReturnIt(@RequestBody CollectionDto collectionDto)
       throws Exception {
-    DomainCollection domainCollection =
-        collectionService.getNewRandomMainCollection(collectionDto.getCollectionDimension());
-    return dtoMapper.map(domainCollection, CollectionDto.class);
+    collectionService.setNewRandomMainCollection(collectionDto.getCollectionDimension());
+    CollectionContainer collectionContainer = collectionService.getCollectionContainer();
+    return dtoMapper.map(collectionContainer, CollectionDto.class);
   }
 }

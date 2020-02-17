@@ -2,7 +2,7 @@ package com.algorithmpresenter.assembler;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.algorithmpresenter.domain.DomainCollection;
+import com.algorithmpresenter.buisness.sorting.CollectionContainer;
 import com.algorithmpresenter.dtos.CollectionDto;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,14 +20,14 @@ public class DtoMapperTests {
     CollectionDto dto = new CollectionDto();
     dto.setMainCollection(new ArrayList<>(Arrays.asList(1, 2, 2, 3)));
     dto.setCollectionDimension(dto.getMainCollection().size());
-    assertNotNull(mapperSubject.map(dto, DomainCollection.class));
+    assertNotNull(mapperSubject.map(dto, CollectionContainer.class));
   }
 
   @Test
   public void givenDtoMapper_whenPassingDomainCollection_thenItReturnsCollectionDto() {
-    DomainCollection domainCollection = new DomainCollection();
-    domainCollection.setMainCollection(new ArrayList<>(Arrays.asList(1, 2, 2, 3)));
-    domainCollection.setCollectionDimension(domainCollection.getMainCollection().size());
-    assertNotNull(mapperSubject.map(domainCollection, CollectionDto.class));
+    CollectionContainer collectionContainer = new CollectionContainer();
+    collectionContainer.setMainCollection(new ArrayList<>(Arrays.asList(1, 2, 2, 3)));
+    collectionContainer.setCollectionDimension(collectionContainer.getMainCollection().size());
+    assertNotNull(mapperSubject.map(collectionContainer, CollectionDto.class));
   }
 }
