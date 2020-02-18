@@ -1,10 +1,10 @@
 package com.algorithmpresenter.repositories.sorting;
 
-import java.util.List;
+import com.algorithmpresenter.buisness.sorting.CollectionContainer;
 
 public interface ICollectionRepository {
   
-  void updateMainCollection(List<Integer> collection);
+  void setMainCollectionContainer(CollectionContainer collectionContainer);
 
-  List<Integer> getMainCollection();
+  CollectionContainer getMainCollectionContainer();
 }

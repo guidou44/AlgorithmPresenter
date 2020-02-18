@@ -11,23 +11,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class CollectionService {
 
-  private CollectionContainer collectionContainer;
   private ICollectionRepository collectionRepository;
 
   @Autowired
-  public CollectionService(CollectionContainer container, ICollectionRepository repository) {
-    collectionContainer = container;
+  public CollectionService(ICollectionRepository repository) {
     collectionRepository = repository;
   }
 
   public void setNewRandomMainCollection(int desiredLength) {
     List<Integer> newCollection = generateNewRandomList(desiredLength);
     updateRepository(newCollection);
-    setContainerUpToDateWithRepository();
   }
 
   public CollectionContainer getCollectionContainer() {
-    return collectionContainer;
+    return collectionRepository.getMainCollectionContainer();
   }
 
   private List<Integer> generateNewRandomList(int desiredLength) {
@@ -45,11 +42,10 @@ public class CollectionService {
   }
 
   private void updateRepository(List<Integer> mainCollection) {
-    collectionRepository.updateMainCollection(mainCollection);
+    CollectionContainer collectionContainer = collectionRepository.getMainCollectionContainer();
+    collectionContainer.setMainCollection(mainCollection);
+    collectionContainer.setCollectionDimension(mainCollection.size());
+    collectionRepository.setMainCollectionContainer(collectionContainer);
   }
 
-  private void setContainerUpToDateWithRepository() {
-    collectionContainer.setCollectionDimension(collectionRepository.getMainCollection().size());
-    collectionContainer.setMainCollection(collectionRepository.getMainCollection());
-  }
 }
