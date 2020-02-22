@@ -1,6 +1,6 @@
 package com.algorithmpresenter.presentation.controller;
 
-public class ControllerBase {
+public abstract class ControllerBase {
 
   protected String getMainViewName() {
     return getClass().getSimpleName().replace("Controller", "View");

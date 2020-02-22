@@ -1,6 +1,5 @@
-package com.algorithmpresenter.domain.sorting.service;
+package com.algorithmpresenter.domain.sorting.buisness;
 
-import com.algorithmpresenter.dal.sorting.ICollectionRepository;
 import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class CollectionService {
 
-  private final int defaultCollectionMax = 100;
-  private final int defaultCollectionMin = 3;
   private ICollectionRepository collectionRepository;
 
   @Autowired
@@ -44,7 +41,10 @@ public class CollectionService {
   }
 
   private int getAcceptedCollectionSize(int desiredLength) {
+    final int defaultCollectionMax = 100;
+    final int defaultCollectionMin = 3;
     int collectionMax;
+
     if (desiredLength < defaultCollectionMax) {
       collectionMax = Math.max(desiredLength, defaultCollectionMin);
     } else {
