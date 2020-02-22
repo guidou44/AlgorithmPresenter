@@ -1,5 +1,6 @@
 package com.algorithmpresenter.domain.sorting.algorithm;
 
+import com.algorithmpresenter.domain.sorting.buisness.SortingAlgorithmBase;
 import java.util.List;
 
 public class BubbleSortAlgorithm extends SortingAlgorithmBase {
@@ -48,7 +49,7 @@ public class BubbleSortAlgorithm extends SortingAlgorithmBase {
     if (collection.get(i) > collection.get(i + 1)) {
       int valueToMove = collection.get(i);
       collection.set(i, collection.get(i + 1));
-      collection.set(i, valueToMove);
+      collection.set(i + 1, valueToMove);
     }
   }
 }

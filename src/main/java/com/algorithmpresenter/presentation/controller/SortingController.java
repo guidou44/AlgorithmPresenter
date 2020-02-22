@@ -1,7 +1,7 @@
 package com.algorithmpresenter.presentation.controller;
 
+import com.algorithmpresenter.domain.sorting.buisness.CollectionService;
 import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
-import com.algorithmpresenter.domain.sorting.service.CollectionService;
 import com.algorithmpresenter.presentation.common.DtoMapper;
 import com.algorithmpresenter.presentation.dto.CollectionDto;
 import org.springframework.beans.factory.annotation.Autowired;

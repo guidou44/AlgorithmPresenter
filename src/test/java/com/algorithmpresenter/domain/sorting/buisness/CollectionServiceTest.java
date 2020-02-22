@@ -1,4 +1,4 @@
-package com.algorithmpresenter.domain.sorting.service;
+package com.algorithmpresenter.domain.sorting.buisness;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

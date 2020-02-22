@@ -1,5 +1,6 @@
 package com.algorithmpresenter.dal.sorting;
 
+import com.algorithmpresenter.domain.sorting.buisness.ICollectionRepository;
 import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,12 +16,10 @@ public class CollectionRepository implements ICollectionRepository {
   }
 
   @Override
-  public void setMainCollectionContainer(CollectionContainer collectionContainer) {
-
-  }
-
-  @Override
   public CollectionContainer getMainCollectionContainer() {
     return mainCollectionContainer;
   }
+
+  @Override
+  public void setMainCollectionContainer(CollectionContainer collectionContainer) {}
 }

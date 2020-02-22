@@ -1,6 +1,7 @@
-package com.algorithmpresenter.domain.sorting.algorithm;
+package com.algorithmpresenter.domain.sorting.buisness;
 
 import com.google.common.collect.Comparators;
+import com.google.common.collect.Ordering;
 import java.util.Comparator;
 import java.util.List;
 
@@ -32,16 +33,16 @@ public abstract class SortingAlgorithmBase {
     this.currentCollection = currentCollection;
   }
 
+  public boolean isSorted() {
+    return Ordering.natural().isOrdered(currentCollection);
+  }
+
   protected void incrementCurrentIndex() {
     currentIndex++;
   }
 
   protected void resetCurrentIndex() {
     currentIndex = 0;
-  }
-
-  protected boolean isSorted() {
-    return Comparators.isInOrder(currentCollection, Comparator.<Integer>naturalOrder());
   }
 
   public abstract List<Integer> fullSort();
