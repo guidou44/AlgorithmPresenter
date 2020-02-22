@@ -1,4 +1,4 @@
-package com.algorithmpresenter.buisness.sorting;
+package com.algorithmpresenter.domain.sorting;
 
 import java.util.List;
 import org.springframework.stereotype.Component;

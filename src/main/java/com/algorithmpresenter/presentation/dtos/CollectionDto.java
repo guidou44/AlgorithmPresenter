@@ -1,4 +1,4 @@
-package com.algorithmpresenter.dtos;
+package com.algorithmpresenter.presentation.dtos;
 
 import java.util.List;
 

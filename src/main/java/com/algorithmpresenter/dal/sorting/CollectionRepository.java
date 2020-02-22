@@ -1,6 +1,6 @@
-package com.algorithmpresenter.repositories.sorting;
+package com.algorithmpresenter.dal.sorting;
 
-import com.algorithmpresenter.buisness.sorting.CollectionContainer;
+import com.algorithmpresenter.domain.sorting.CollectionContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

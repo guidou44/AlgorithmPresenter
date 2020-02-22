@@ -1,9 +1,9 @@
-package com.algorithmpresenter.controllers;
+package com.algorithmpresenter.presentation.controllers;
 
-import com.algorithmpresenter.assembler.DtoMapper;
-import com.algorithmpresenter.buisness.sorting.CollectionContainer;
-import com.algorithmpresenter.dtos.CollectionDto;
-import com.algorithmpresenter.services.CollectionService;
+import com.algorithmpresenter.buisness.services.CollectionService;
+import com.algorithmpresenter.domain.sorting.CollectionContainer;
+import com.algorithmpresenter.presentation.common.DtoMapper;
+import com.algorithmpresenter.presentation.dtos.CollectionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

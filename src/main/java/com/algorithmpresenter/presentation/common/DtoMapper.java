@@ -1,4 +1,4 @@
-package com.algorithmpresenter.assembler;
+package com.algorithmpresenter.presentation.common;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

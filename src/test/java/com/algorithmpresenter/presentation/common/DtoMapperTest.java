@@ -1,9 +1,9 @@
-package com.algorithmpresenter.assembler;
+package com.algorithmpresenter.presentation.common;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.algorithmpresenter.buisness.sorting.CollectionContainer;
-import com.algorithmpresenter.dtos.CollectionDto;
+import com.algorithmpresenter.domain.sorting.CollectionContainer;
+import com.algorithmpresenter.presentation.dtos.CollectionDto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class DtoMapperTests {
+public class DtoMapperTest {
 
   @Autowired private DtoMapper mapperSubject;
 

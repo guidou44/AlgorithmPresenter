@@ -1,6 +1,6 @@
-package com.algorithmpresenter.dtos;
+package com.algorithmpresenter.domain.sorting;
 
-public class SortedCollectionDto {
+public class SortedCollectionContainer extends CollectionContainer {
 
   private int currentSortingIndex;
   private boolean isSortingDone;

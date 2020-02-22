@@ -1,7 +1,7 @@
-package com.algorithmpresenter.services;
+package com.algorithmpresenter.buisness.services;
 
-import com.algorithmpresenter.buisness.sorting.CollectionContainer;
-import com.algorithmpresenter.repositories.sorting.ICollectionRepository;
+import com.algorithmpresenter.dal.sorting.ICollectionRepository;
+import com.algorithmpresenter.domain.sorting.CollectionContainer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CollectionService {
 
+  private final int defaultCollectionMax = 100;
+  private final int defaultCollectionMin = 3;
   private ICollectionRepository collectionRepository;
 
   @Autowired
@@ -30,8 +32,8 @@ public class CollectionService {
   private List<Integer> generateNewRandomList(int desiredLength) {
     List<Integer> mainCollection = new ArrayList<Integer>();
     Random random = new Random();
-    int defaultCollectionMax = 100;
-    int collectionMax = Math.min(desiredLength, defaultCollectionMax);
+
+    int collectionMax = getAcceptedCollectionSize(desiredLength);
 
     for (int i = 0; i < collectionMax; i++) {
       int randomNumber = random.nextInt(collectionMax + 1);
@@ -41,11 +43,20 @@ public class CollectionService {
     return mainCollection;
   }
 
+  private int getAcceptedCollectionSize(int desiredLength) {
+    int collectionMax;
+    if (desiredLength < defaultCollectionMax) {
+      collectionMax = Math.max(desiredLength, defaultCollectionMin);
+    } else {
+      collectionMax = defaultCollectionMax;
+    }
+    return collectionMax;
+  }
+
   private void updateRepository(List<Integer> mainCollection) {
     CollectionContainer collectionContainer = collectionRepository.getMainCollectionContainer();
     collectionContainer.setMainCollection(mainCollection);
     collectionContainer.setCollectionDimension(mainCollection.size());
     collectionRepository.setMainCollectionContainer(collectionContainer);
   }
-
 }

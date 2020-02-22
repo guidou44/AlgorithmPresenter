@@ -1,4 +1,4 @@
-package com.algorithmpresenter.controllertests;
+package com.algorithmpresenter.presentation.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -6,8 +6,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import com.algorithmpresenter.buisness.sorting.CollectionContainer;
-import com.algorithmpresenter.controllers.SortingController;
+import com.algorithmpresenter.domain.sorting.CollectionContainer;
+import com.algorithmpresenter.presentation.controllers.SortingController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = SortingController.class)
 @ComponentScan({"com.algorithmpresenter"})
-public class SortingControllerTests {
+public class SortingControllerTest {
 
   @Autowired private MockMvc mockMvc;
   @Autowired private ObjectMapper objectMapper;
