@@ -1,4 +1,4 @@
-package com.algorithmpresenter.domain.sorting;
+package com.algorithmpresenter.domain.sorting.model;
 
 public class SortedCollectionContainer extends CollectionContainer {
 

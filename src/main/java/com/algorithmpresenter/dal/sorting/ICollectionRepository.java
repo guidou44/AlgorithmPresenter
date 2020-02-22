@@ -1,6 +1,6 @@
 package com.algorithmpresenter.dal.sorting;
 
-import com.algorithmpresenter.domain.sorting.CollectionContainer;
+import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
 
 public interface ICollectionRepository {
   

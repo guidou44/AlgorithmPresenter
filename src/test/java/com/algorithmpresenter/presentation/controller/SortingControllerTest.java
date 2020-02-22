@@ -1,4 +1,4 @@
-package com.algorithmpresenter.presentation.controllers;
+package com.algorithmpresenter.presentation.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -6,8 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import com.algorithmpresenter.domain.sorting.CollectionContainer;
-import com.algorithmpresenter.presentation.controllers.SortingController;
+import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Random;
 import org.junit.jupiter.api.Test;

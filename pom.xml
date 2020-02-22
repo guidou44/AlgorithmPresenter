@@ -66,6 +66,8 @@
     <!-- model mapper version-->
     <stomp-websocket-version>2.3.3</stomp-websocket-version>
 
+    <!-- google collection-->
+    <google-guava-version>23.0</google-guava-version>
   </properties>
 
   <build>
@@ -287,6 +289,13 @@
       <artifactId>modelmapper</artifactId>
       <groupId>org.modelmapper</groupId>
       <version>${model-mapper-version}</version>
+    </dependency>
+
+    <!-- google-guava collection-->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${google-guava-version}</version>
     </dependency>
 
   </dependencies>

@@ -1,7 +1,7 @@
-package com.algorithmpresenter.buisness.services;
+package com.algorithmpresenter.domain.sorting.service;
 
 import com.algorithmpresenter.dal.sorting.ICollectionRepository;
-import com.algorithmpresenter.domain.sorting.CollectionContainer;
+import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

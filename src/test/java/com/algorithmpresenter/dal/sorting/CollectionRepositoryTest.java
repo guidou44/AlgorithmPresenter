@@ -2,7 +2,7 @@ package com.algorithmpresenter.dal.sorting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.algorithmpresenter.domain.sorting.CollectionContainer;
+import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

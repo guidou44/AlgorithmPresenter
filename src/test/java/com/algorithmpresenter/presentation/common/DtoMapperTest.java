@@ -2,8 +2,8 @@ package com.algorithmpresenter.presentation.common;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import com.algorithmpresenter.domain.sorting.CollectionContainer;
-import com.algorithmpresenter.presentation.dtos.CollectionDto;
+import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
+import com.algorithmpresenter.presentation.dto.CollectionDto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;

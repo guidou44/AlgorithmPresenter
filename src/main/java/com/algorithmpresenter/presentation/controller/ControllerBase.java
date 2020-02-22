@@ -1,4 +1,4 @@
-package com.algorithmpresenter.presentation.controllers;
+package com.algorithmpresenter.presentation.controller;
 
 public class ControllerBase {
 
