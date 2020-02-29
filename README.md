@@ -1,5 +1,9 @@
 # AlgorithmPresenter
 ![CI Status](https://github.com/guidou44/AlgorithmPresenter/workflows/AlgorithmPresenter%20CI/badge.svg?branch=master)
+[![codecov](https://codecov.io/gh/guidou44/AlgorithmPresenter/branch/master/graph/badge.svg)](https://codecov.io/gh/guidou44/AlgorithmPresenter)
+
+## Code coverage
+see on [CodeCov](https://codecov.io/gh/guidou44/AlgorithmPresenter)
 
 ## Description
 web app to test and display common algorithms
