@@ -1,6 +1,7 @@
 package com.algorithmpresenter.domain.common;
 
 import com.algorithmpresenter.domain.sorting.algorithm.BubbleSortAlgorithm;
+import com.algorithmpresenter.domain.sorting.algorithm.InsertionSortAlgorithm;
 import com.algorithmpresenter.domain.sorting.buisness.ISortingFactory;
 import com.algorithmpresenter.domain.sorting.buisness.SortingAlgorithmBase;
 import java.util.Collections;
@@ -18,6 +19,7 @@ public class SortingFactory implements ISortingFactory {
           new HashMap<String, Class<? extends SortingAlgorithmBase>>() {
             {
               put("BUBBLE", BubbleSortAlgorithm.class);
+              put("INSERTION", InsertionSortAlgorithm.class);
             }
           });
 

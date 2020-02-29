@@ -1,8 +1,6 @@
 package com.algorithmpresenter.domain.sorting.buisness;
 
-import com.google.common.collect.Comparators;
 import com.google.common.collect.Ordering;
-import java.util.Comparator;
 import java.util.List;
 
 public abstract class SortingAlgorithmBase {

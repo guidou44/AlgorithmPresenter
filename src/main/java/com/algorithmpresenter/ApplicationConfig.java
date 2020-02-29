@@ -13,8 +13,4 @@ public class ApplicationConfig {
     return new ModelMapper();
   }
 
-  @Bean
-  public List<Integer> mainCollection() {
-    return new ArrayList<>();
-  }
 }

@@ -1,6 +1,6 @@
 
 function displayCharacterKoopaMagician(ms) {
-  var divContainingCharacter = document.getElementById("CharacterContainer");
+  let divContainingCharacter = document.getElementById("CharacterContainer");
   console.log("setting visibility visible");
   divContainingCharacter.style.visibility = "visible";
   sleep(ms).then(() => {

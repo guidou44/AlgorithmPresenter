@@ -31,3 +31,19 @@ function incrementCollectionSize() {
     decrementButton.disabled = false;
   getNewCollection();
 }
+
+function disableIncrementalButtonIfNeeded(collectionLength) {
+  const incrementButton = document.getElementById("incrementButton");
+  const decrementButton = document.getElementById("decrementButton");
+
+  if (collectionLength === 100) {
+    decrementButton.disabled = false;
+    incrementButton.disabled = true;
+  } else if (collectionLength === 3) {
+    decrementButton.disabled = true;
+    incrementButton.disabled = false;
+  } else {
+    decrementButton.disabled = false;
+    incrementButton.disabled = false;
+  }
+}

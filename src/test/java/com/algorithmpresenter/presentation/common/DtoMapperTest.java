@@ -18,7 +18,7 @@ public class DtoMapperTest {
   @Test
   public void givenDtoMapper_whenPassingCollectionDto_thenItReturnsDomainCollection() {
     CollectionDto dto = new CollectionDto();
-    dto.setMainCollection(new ArrayList<>(Arrays.asList(1, 2, 2, 3)));
+    dto.setMainCollection(Arrays.asList(1, 2, 2, 3));
     dto.setCollectionDimension(dto.getMainCollection().size());
     assertNotNull(mapperSubject.map(dto, CollectionContainer.class));
   }

@@ -5,6 +5,11 @@ public class SortedCollectionContainer extends CollectionContainer {
   private int currentSortingIndex;
   private boolean isSortingDone;
 
+  public SortedCollectionContainer(CollectionContainer container) {
+    setCollectionDimension(container.getCollectionDimension());
+    setMainCollection(container.getMainCollection());
+  }
+
   public int getCurrentSortingIndex() {
     return currentSortingIndex;
   }

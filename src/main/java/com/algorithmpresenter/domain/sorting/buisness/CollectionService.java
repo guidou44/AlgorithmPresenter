@@ -1,9 +1,11 @@
 package com.algorithmpresenter.domain.sorting.buisness;
 
 import com.algorithmpresenter.domain.sorting.model.CollectionContainer;
+import com.algorithmpresenter.domain.sorting.model.SortedCollectionContainer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,15 +13,44 @@ import org.springframework.stereotype.Service;
 public class CollectionService {
 
   private ICollectionRepository collectionRepository;
+  private ISortingFactory algorithmFactory;
+  private SortingAlgorithmBase algorithm;
 
   @Autowired
-  public CollectionService(ICollectionRepository repository) {
-    collectionRepository = repository;
+  public CollectionService(ICollectionRepository repository, ISortingFactory algorithmFactory) {
+    this.collectionRepository = repository;
+    this.algorithmFactory = algorithmFactory;
+  }
+
+  public Set<String> getAvailableAlgorithms() {
+    return algorithmFactory.getAvailableAlgorithmsName();
+  }
+
+  public CollectionContainer nextSortingIteration(String sortAlgorithm) throws Exception {
+    CollectionContainer mainContainer = collectionRepository.getMainCollectionContainer();
+
+    setAlgorithm(sortAlgorithm, mainContainer);
+
+    SortedCollectionContainer sortedContainer = new SortedCollectionContainer(mainContainer);
+    sortedContainer.setMainCollection(algorithm.nextSortingIteration());
+    sortedContainer.setCurrentSortingIndex(algorithm.getCurrentIndex());
+    sortedContainer.setSortingDone(algorithm.isSorted());
+
+    return sortedContainer;
+  }
+
+  private void setAlgorithm(String sortAlgorithm, CollectionContainer mainContainer)
+      throws Exception {
+    if (algorithm == null) {
+      algorithm = algorithmFactory.createInstance(sortAlgorithm, mainContainer.getMainCollection());
+    } else {
+      algorithm.setCurrentCollection(mainContainer.getMainCollection());
+    }
   }
 
   public void setNewRandomMainCollection(int desiredLength) {
     List<Integer> newCollection = generateNewRandomList(desiredLength);
-    updateRepository(newCollection);
+    updateCollectionRepository(newCollection);
   }
 
   public CollectionContainer getCollectionContainer() {
@@ -53,7 +84,7 @@ public class CollectionService {
     return collectionMax;
   }
 
-  private void updateRepository(List<Integer> mainCollection) {
+  private void updateCollectionRepository(List<Integer> mainCollection) {
     CollectionContainer collectionContainer = collectionRepository.getMainCollectionContainer();
     collectionContainer.setMainCollection(mainCollection);
     collectionContainer.setCollectionDimension(mainCollection.size());

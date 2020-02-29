@@ -1,5 +1,6 @@
 package com.algorithmpresenter.domain.sorting.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,10 @@ public class CollectionContainer {
 
   private int collectionDimension;
   private List<Integer> mainCollection;
+
+  public CollectionContainer() {
+    this.mainCollection = new ArrayList<Integer>();
+  }
 
   public int getCollectionDimension() {
     return collectionDimension;

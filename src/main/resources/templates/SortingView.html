@@ -26,7 +26,7 @@
   <script type="text/javascript" src="js/HttpClient.js"></script>
 </head>
 
-<body id="body" onload="getNewCollection()">
+<body id="body" onload="initializeComponents()">
 
 <div class="container" id="mainContainer">
   <div class="row">
@@ -91,13 +91,8 @@
 
                 <div class="select-style">
                   <select id="AlgorithmSources">
-                    <option value="Bubble">Bubble</option>
-                    <option value="Insert">Insert</option>
-                    <option value="Select">Select</option>
-                    <option value="Merge">Merge</option>
                   </select>
                 </div>
-
               </div>
 
               <div class="SideContainerFlexLeft AlignRightContainer">
@@ -111,7 +106,7 @@
                          type="image"
                          src="images/marioWalking.gif"
                          alt="RANDOM"
-                         onclick="displayCharacterKoopaMagician(1300)"
+                         onclick="sort()"
                          class="RandomMarioBlockButton"/>
                 </div>
 
