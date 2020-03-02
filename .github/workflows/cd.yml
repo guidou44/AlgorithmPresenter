@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build & Deploy
-        run: mvn clean install && HEROKU_API_KEY=${{ secrets.HEROKU_API_TOKEN }} mvn clean heroku:deploy
+        run: mvn clean install -DskipTests && HEROKU_API_KEY=${{ secrets.HEROKU_API_TOKEN }} mvn clean heroku:deploy
