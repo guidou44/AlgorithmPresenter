@@ -57,7 +57,7 @@
     <sockjs-client-version>1.0.2</sockjs-client-version>
 
     <!-- Bootstrap-->
-    <bootstrap-version>3.3.7</bootstrap-version>
+    <bootstrap-version>3.4.0</bootstrap-version>
 
     <!-- JQuery-->
     <jquery-verison>3.1.0</jquery-verison>
